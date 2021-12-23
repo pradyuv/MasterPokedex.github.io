@@ -1,30 +1,110 @@
+# Importing the necessary libraries for webscraping
 import requests
+import string
 from bs4 import BeautifulSoup
 
+# This function here will take the processed names of each pokemon and then retrieve the necessary information
+# from pokemondb.net. So far, it will only retrieve the pokedex number, but it's a start. Next steps include typing
+# evolutions, evolution info (e.g. level it evolves at, specific conditions for evolution)
+def printingInfo(pokemon):
+    pokemonInfo = []
+    # Iterating over the list of names
+    for name in pokemon:
+        # Webscraping each individual page and then retrieving the pokedex number (as of writing this comment)
+        # SUPER INEFFICIENT, ONLY PURPOSE WILL BE TO WRITE TO A FILE THAT WILL THEN BE REFERENCED BY THE
+        # WEBPAGE
+        tempurl = "https://pokemondb.net/pokedex/" + name.lower()
+        temppage = requests.get(tempurl)
+        tempsoup = BeautifulSoup(temppage.content, "html.parser")
 
+        # Finding the element that contains the pokedex number for the pokemon. Fortunately for us, the pokedex
+        # number is the only <strong> element in the entire webpage
+        pokedexNumber = str(tempsoup.find("strong"))
+
+        # Apologies for the confusing variable names, this variable serves the same purpose as firstClosingBrace below,
+        # but this time it's a local variable
+        firstClosingBracket = pokedexNumber.index(">")
+        # Same purpose as above, just trying to find the index
+        secondOpeningBracket = pokedexNumber[firstClosingBracket + 1:].index("<")
+
+        # Properly formatting the pokedex number so that it's easy to read when displayed on screen
+        formattedPokedexNumber = pokedexNumber[firstClosingBracket + 1:firstClosingBracket + secondOpeningBracket + 1]
+
+        # Appending the pokedex number and the name to the pokemon info list
+        pokemonInfo.append([formattedPokedexNumber, name])
+
+    # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
+    # WE ARE JUST PRINTING FOR THE TIME BEING)
+    return pokemonInfo
+
+# This is the link that contains all the pokemon, will be retrieving the names of all the Pokemon through
+# this link her e
 URL = "https://pokemondb.net/pokedex/all"
+# Getting the contents of the page
 page = requests.get(URL)
 
+# Creating a beautiful soup instance with the contents of the page
 soup = BeautifulSoup(page.content, "html.parser")
+
+# Getting each td entry, as the td elements contain the pokemon's name
 pokedex = soup.findAll("td", class_="cell-name")
 
-for i in range(len(pokedex)):
-    strPokemon = str(pokedex[i].encode("utf-8"))
+# A list that contains all the unique pokemons
+pokemon_names = []
 
-    
-    
+# A list that will contain any versions of each pokemon (e.g. megas, alolan, primal, etc.)
+pokemon_names_with_megas = []
+
+# Going through each table data element for processing purposes
+for i in range(len(pokedex)):
+    # Some processing of the raw text. Converting the line into a usable data type, string
+    strPokemon = str(pokedex[i].encode("utf-8"))
+    # Formating the text to get the name out of the mess that is the HTML surrounding it 
     firstClosingBrace = strPokemon.index(">")
     secondClosingBrace = strPokemon[firstClosingBrace + 1:].index(">")
     thirdOpeningBrace = strPokemon[firstClosingBrace + secondClosingBrace + 2:].index("<")
 
-    # Printing the name of the pokemon, but adding a different end character depending on if there's a unique version of said pokemon (e.g. megas, alolan, primal, etc.)
-    if ("small" in strPokemon):
-        print(strPokemon[firstClosingBrace + secondClosingBrace + 2:firstClosingBrace + secondClosingBrace + thirdOpeningBrace + 2], end=" ")
-    else:
-        print(strPokemon[firstClosingBrace + secondClosingBrace + 2:firstClosingBrace + secondClosingBrace + thirdOpeningBrace + 2])
+    # Assigning the formatted name to a variable for easy reference's sake
+    name = strPokemon[firstClosingBrace + secondClosingBrace + 2:firstClosingBrace + secondClosingBrace + thirdOpeningBrace + 2]
 
-    # Printing the unique version of said pokemon
+    # Some processing of the name to ensure no punctuation is passed through. Some pokemon contain punctuation in
+    # their name, and this punctation is often not carried over in links. As a result, it is necessary to remove the
+    # name of all invalid puncutation before it it sent off for web scraping their specific pages
+    formattedName = ""
+    for letter in name:
+        if letter == "-":
+            formattedName += "-"
+        elif letter not in string.punctuation and letter != " ":
+            formattedName += letter
+        elif letter == " ":
+            formattedName += "-"
+    
+    # Some specific pokemon have characters that do not abide by UTF-8. As a result, it is necessary to hard
+    # code them in otherwise the name that gets passed on for web scraping is some nonsense that points to
+    # a webpage that does not exist. Gotta love Python
+    if ("xe2x99x80" in formattedName):
+        formattedName = "Nidoran-f"
+    elif ("xe2x99x82" in formattedName):
+        formattedName = "Nidoran-m"
+    elif ("xc3xa9bxc3xa9" in formattedName):
+        formattedName = "Flabebe"
+
+    # Appending the name of the pokemon to the respective list. Mega if they have different forms,
+    # or names for their base forms
     if ("small" in strPokemon):
         startingIndex = strPokemon.index("muted\">") + 7
         endingIndex = strPokemon[startingIndex:].index("<")
-        print (strPokemon[startingIndex:startingIndex + endingIndex])
+
+        if (formattedName not in pokemon_names):
+            pokemon_names.append(formattedName)
+
+        formattedName += " " + strPokemon[startingIndex:startingIndex + endingIndex]
+        pokemon_names_with_megas.append(formattedName)
+    else:
+        pokemon_names.append(formattedName)
+
+# Calling the printingInfo function to retrieve the pokedex numbers of each entry
+info = printingInfo(pokemon_names)
+
+# Printing just for the sake of debugging. WILL BE REMOvED IN THE FINAL PRODUCT
+#print (info)
