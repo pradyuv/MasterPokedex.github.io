@@ -7,6 +7,7 @@ allTypes = ['Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting', '
             'Psychic', 'Bug', 'Rock', 'Ghost', 'Dark', 'Dragon', 'Steel', 'Fairy']
 
 
+
 # This function here will take the processed names of each pokemon and then retrieve the necessary information
 # from pokemondb.net. So far, it will only retrieve the pokedex number, but it's a start. Next steps include typing
 # evolutions, evolution info (e.g. level it evolves at, specific conditions for evolution)
