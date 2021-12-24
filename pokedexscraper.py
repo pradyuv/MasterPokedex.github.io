@@ -25,8 +25,6 @@ def printingInfo(pokemon):
         # number is the only <strong> element in the entire webpage
         pokedexNumber = str(tempSoup.find("strong"))
         pokemonType = list(tempSoup.findAll("a", class_="type-icon"))
-        #pokemonHeight=str(tempSoup.find("<th>Height</th>"))
-        #print (pokemonHeight)
         thisPokemonType = []
         # Checks if a pokemon has a certain type and appends it to its own list
 
