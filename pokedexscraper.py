@@ -2,12 +2,16 @@
 import requests
 import string
 from bs4 import BeautifulSoup
+import re
 
+allTypes = ['Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying',
+                'Psychic', 'Bug', 'Rock', 'Ghost', 'Dark', 'Dragon', 'Steel', 'Fairy']
 # This function here will take the processed names of each pokemon and then retrieve the necessary information
 # from pokemondb.net. So far, it will only retrieve the pokedex number, but it's a start. Next steps include typing
 # evolutions, evolution info (e.g. level it evolves at, specific conditions for evolution)
 def printingInfo(pokemon):
     pokemonInfo = []
+    # list referenced after to check for Pokemon types
     # Iterating over the list of names
     for name in pokemon:
         # Webscraping each individual page and then retrieving the pokedex number (as of writing this comment)
@@ -20,7 +24,18 @@ def printingInfo(pokemon):
         # Finding the element that contains the pokedex number for the pokemon. Fortunately for us, the pokedex
         # number is the only <strong> element in the entire webpage
         pokedexNumber = str(tempsoup.find("strong"))
+        pokemonType = list(tempsoup.findAll("a", class_="type-icon"))
+        thisPokemonType = []
+        # Checks if a pokemon has a certain type and appends it to its own list
 
+        for x in range(2):
+            if "title" not in pokemonType[x]:
+                print(pokemonType[x])
+                for typeCheck in allTypes:
+                    if typeCheck in pokemonType[x]:
+                        print(typeCheck)
+                        thisPokemonType.append(typeCheck)
+                        print(thisPokemonType)
         # Apologies for the confusing variable names, this variable serves the same purpose as firstClosingBrace below,
         # but this time it's a local variable
         firstClosingBracket = pokedexNumber.index(">")
@@ -31,11 +46,12 @@ def printingInfo(pokemon):
         formattedPokedexNumber = pokedexNumber[firstClosingBracket + 1:firstClosingBracket + secondOpeningBracket + 1]
 
         # Appending the pokedex number and the name to the pokemon info list
-        pokemonInfo.append([formattedPokedexNumber, name])
+        pokemonInfo.append([formattedPokedexNumber, name, thisPokemonType])
 
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
     # WE ARE JUST PRINTING FOR THE TIME BEING)
     return pokemonInfo
+
 
 # This is the link that contains all the pokemon, will be retrieving the names of all the Pokemon through
 # this link her e
@@ -59,17 +75,18 @@ pokemon_names_with_megas = []
 for i in range(len(pokedex)):
     # Some processing of the raw text. Converting the line into a usable data type, string
     strPokemon = str(pokedex[i].encode("utf-8"))
-    # Formating the text to get the name out of the mess that is the HTML surrounding it 
+    # Formatting the text to get the name out of the mess that is the HTML surrounding it
     firstClosingBrace = strPokemon.index(">")
     secondClosingBrace = strPokemon[firstClosingBrace + 1:].index(">")
     thirdOpeningBrace = strPokemon[firstClosingBrace + secondClosingBrace + 2:].index("<")
 
     # Assigning the formatted name to a variable for easy reference's sake
-    name = strPokemon[firstClosingBrace + secondClosingBrace + 2:firstClosingBrace + secondClosingBrace + thirdOpeningBrace + 2]
+    name = strPokemon[
+           firstClosingBrace + secondClosingBrace + 2:firstClosingBrace + secondClosingBrace + thirdOpeningBrace + 2]
 
     # Some processing of the name to ensure no punctuation is passed through. Some pokemon contain punctuation in
-    # their name, and this punctation is often not carried over in links. As a result, it is necessary to remove the
-    # name of all invalid puncutation before it it sent off for web scraping their specific pages
+    # their name, and this punctuation is often not carried over in links. As a result, it is necessary to remove the
+    # name of all invalid punctuation before it it sent off for web scraping their specific pages
     formattedName = ""
     for letter in name:
         if letter == "-":
@@ -78,24 +95,24 @@ for i in range(len(pokedex)):
             formattedName += letter
         elif letter == " ":
             formattedName += "-"
-    
+
     # Some specific pokemon have characters that do not abide by UTF-8. As a result, it is necessary to hard
     # code them in otherwise the name that gets passed on for web scraping is some nonsense that points to
     # a webpage that does not exist. Gotta love Python
-    if ("xe2x99x80" in formattedName):
+    if "xe2x99x80" in formattedName:
         formattedName = "Nidoran-f"
-    elif ("xe2x99x82" in formattedName):
+    elif "xe2x99x82" in formattedName:
         formattedName = "Nidoran-m"
-    elif ("xc3xa9bxc3xa9" in formattedName):
+    elif "xc3xa9bxc3xa9" in formattedName:
         formattedName = "Flabebe"
 
     # Appending the name of the pokemon to the respective list. Mega if they have different forms,
     # or names for their base forms
-    if ("small" in strPokemon):
+    if "small" in strPokemon:
         startingIndex = strPokemon.index("muted\">") + 7
         endingIndex = strPokemon[startingIndex:].index("<")
 
-        if (formattedName not in pokemon_names):
+        if formattedName not in pokemon_names:
             pokemon_names.append(formattedName)
 
         formattedName += " " + strPokemon[startingIndex:startingIndex + endingIndex]
@@ -107,4 +124,4 @@ for i in range(len(pokedex)):
 info = printingInfo(pokemon_names)
 
 # Printing just for the sake of debugging. WILL BE REMOvED IN THE FINAL PRODUCT
-#print (info)
+print(info)
