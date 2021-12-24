@@ -37,14 +37,6 @@ def printingInfo(pokemon):
                 except AttributeError:
                     evolutionCondition.append(e.previous_sibling.get_text())
         evolution=[x for x in evolutionCondition if x is not None]
-        print(evolution)
-        '''
-        if e.previous_sibling.string is None:
-        print(e.previous_sibling.string)
-        evolutionCondition.append(e.next_sibling.string)
-        else:
-        evolutionCondition.append(e.previous_sibling.string)
-        '''
         thisPokemonType = []
         # Checks if a pokemon has a certain type and appends it to its own list
         for x in range(2):
@@ -71,7 +63,6 @@ def printingInfo(pokemon):
 
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
     # WE ARE JUST PRINTING FOR THE TIME BEING)
-    print(pokemonInfo)
     return pokemonInfo
 
 
