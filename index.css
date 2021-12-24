@@ -1,3 +1,4 @@
+/* Styling the pokedex id*/
 #pokedex{
     width: 400px;
     height: 600px;
@@ -8,15 +9,18 @@
     border: 2px solid black;
 }
 
+/* Styling the paragraph elements on the webpage */
 p{
     text-align: center;
 }
 
+/* Editing the table that in essence makes up the entire pokedex */
 table{
     width: 100%;
     background-color: lightblue;
 }
 
+/* Editing the buttons that will represent the pokedex entries for each pokemon */
 td button{
     width: 100%;
     height: 100px;
