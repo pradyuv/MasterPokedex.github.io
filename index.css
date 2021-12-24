@@ -1,3 +1,8 @@
+/* Styling the general body elements */
+body{
+    font-family: "Arial";
+}
+
 /* Styling the pokedex id*/
 #pokedex{
     width: 400px;
@@ -24,11 +29,13 @@ table{
 td button{
     width: 100%;
     height: 100px;
-    border: none;
+    border: 4px solid white;
+    border-radius: 8px;
+
 }
 
 td button:hover{
-    background-color: white;
+    background-color: rgba(211, 211, 211, 0.5);
 }
 
 
@@ -43,4 +50,10 @@ td button:hover{
 
 ::-webkit-scrollbar-thumb{
     background: lightgray;
+}
+
+/* Centering the input field */
+input{
+    margin: 0 auto;
+    display: block;
 }

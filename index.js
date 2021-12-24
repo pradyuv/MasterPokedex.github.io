@@ -17,6 +17,7 @@ for (let i = 0; i < rows+1; i++){
         // WITH THE FILE)
         var button = document.createElement("button");
         var text = document.createTextNode(counter);
+        button.id = counter;
         if (counter < 899){
             button.appendChild(text);
             cell.appendChild(button);
@@ -28,4 +29,25 @@ for (let i = 0; i < rows+1; i++){
     // Adding the row with all the elements to the table
     var table = document.getElementById("pokedexEntries")
     table.appendChild(row);
+}
+
+// This function is here so that users can search up specific pokemon. For the time being, you can only search up by pokedex number,
+// but we hope to allow users to search up via the name of the Pokemon.
+function search(){
+    let input = document.getElementById("searchbar").value;
+    let pokedex = document.getElementById("pokedexEntries");
+
+    for (let i = 0; i < pokedex.rows.length; i++){
+        let data = pokedex.rows.item(i).cells;
+
+        for (let j = 0; j < data.length; j++){
+            if (data[j].innerHTML.includes(input) == false){
+                // If the current cell does not contain the pokedex number the user is searching, its display is set to none, making it invisible
+                data[j].style.display = "none";
+            } else {
+                // If the current cell does contain the pokedex number, its visibility is set to table-cell, mimicking a <td> element
+                data[j].style.display = "table-cell";
+            }
+        }
+    }
 }
