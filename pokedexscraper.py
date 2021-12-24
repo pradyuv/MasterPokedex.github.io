@@ -19,6 +19,7 @@ from bs4 import BeautifulSoup
 allTypes = ['Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying',
             'Psychic', 'Bug', 'Rock', 'Ghost', 'Dark', 'Dragon', 'Steel', 'Fairy']
 
+
 # This function here will take the processed names of each pokemon and then retrieve the necessary information
 # from pokemondb.net. So far, it will only retrieve the pokedex number, but it's a start. Next steps include typing
 # evolutions, evolution info (e.g. level it evolves at, specific conditions for evolution)
@@ -39,6 +40,15 @@ def printingInfo(pokemon):
         pokedexNumber = str(tempSoup.find("strong"))
         pokemonType = list(tempSoup.findAll("a", class_="type-icon"))
         evolutionConditionRaw = list((tempSoup.findAll("i", class_="icon-arrow")))
+        pokemonIconSrcFinder = str(list(tempSoup.find("a",{"rel":"lightbox"})))
+        startSrc=pokemonIconSrcFinder.index("src=")
+        endSrclst=[]
+        for j in range(len(pokemonIconSrcFinder)-1,0,-1):
+            if pokemonIconSrcFinder[j]=='"':
+                endSrclst.append(j)
+            if len(endSrclst)>=3:
+                break
+        pokemonIconSrc=pokemonIconSrcFinder[startSrc+len("src="):endSrclst[-1]+1]
         evolutionCondition = []
         for e in evolutionConditionRaw:
             try:
@@ -48,7 +58,7 @@ def printingInfo(pokemon):
                     evolutionCondition.append(e.next_sibling.get_text())
                 except AttributeError:
                     evolutionCondition.append(e.previous_sibling.get_text())
-        evolution=[x for x in evolutionCondition if x is not None]
+        evolution = [x for x in evolutionCondition if x is not None]
         thisPokemonType = []
         # Checks if a pokemon has a certain type and appends it to its own list
         for x in range(2):
@@ -71,7 +81,7 @@ def printingInfo(pokemon):
         formattedPokedexNumber = pokedexNumber[firstClosingBracket + 1:firstClosingBracket + secondOpeningBracket + 1]
 
         # Appending the pokedex number and the name to the pokemon info list
-        pokemonInfo.append([formattedPokedexNumber, name, thisPokemonType, weight, height, evolution])
+        pokemonInfo.append([formattedPokedexNumber, name, thisPokemonType, weight, height, evolution,pokemonIconSrc])
 
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
     # WE ARE JUST PRINTING FOR THE TIME BEING)
