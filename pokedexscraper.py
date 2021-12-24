@@ -19,23 +19,22 @@ def printingInfo(pokemon):
         # WEBPAGE
         tempurl = "https://pokemondb.net/pokedex/" + name.lower()
         temppage = requests.get(tempurl)
-        tempsoup = BeautifulSoup(temppage.content, "html.parser")
+        tempSoup = BeautifulSoup(temppage.content, "html.parser")
 
         # Finding the element that contains the pokedex number for the pokemon. Fortunately for us, the pokedex
         # number is the only <strong> element in the entire webpage
-        pokedexNumber = str(tempsoup.find("strong"))
-        pokemonType = list(tempsoup.findAll("a", class_="type-icon"))
+        pokedexNumber = str(tempSoup.find("strong"))
+        pokemonType = list(tempSoup.findAll("a", class_="type-icon"))
+        #pokemonHeight=str(tempSoup.find("<th>Height</th>"))
+        #print (pokemonHeight)
         thisPokemonType = []
         # Checks if a pokemon has a certain type and appends it to its own list
 
         for x in range(2):
             if "title" not in pokemonType[x]:
-                print(pokemonType[x])
                 for typeCheck in allTypes:
                     if typeCheck in pokemonType[x]:
-                        print(typeCheck)
                         thisPokemonType.append(typeCheck)
-                        print(thisPokemonType)
         # Apologies for the confusing variable names, this variable serves the same purpose as firstClosingBrace below,
         # but this time it's a local variable
         firstClosingBracket = pokedexNumber.index(">")
