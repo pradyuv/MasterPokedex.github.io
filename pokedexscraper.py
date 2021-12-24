@@ -2,10 +2,11 @@
 import requests
 import string
 from bs4 import BeautifulSoup
-import re
 
 allTypes = ['Normal', 'Fire', 'Water', 'Grass', 'Electric', 'Ice', 'Fighting', 'Poison', 'Ground', 'Flying',
-                'Psychic', 'Bug', 'Rock', 'Ghost', 'Dark', 'Dragon', 'Steel', 'Fairy']
+            'Psychic', 'Bug', 'Rock', 'Ghost', 'Dark', 'Dragon', 'Steel', 'Fairy']
+
+
 # This function here will take the processed names of each pokemon and then retrieve the necessary information
 # from pokemondb.net. So far, it will only retrieve the pokedex number, but it's a start. Next steps include typing
 # evolutions, evolution info (e.g. level it evolves at, specific conditions for evolution)
@@ -25,14 +26,37 @@ def printingInfo(pokemon):
         # number is the only <strong> element in the entire webpage
         pokedexNumber = str(tempSoup.find("strong"))
         pokemonType = list(tempSoup.findAll("a", class_="type-icon"))
+        evolutionConditionRaw = list((tempSoup.findAll("i", class_="icon-arrow")))
+        evolutionCondition = []
+        for e in evolutionConditionRaw:
+            try:
+                evolutionCondition.append(e.next_sibling.get_text())
+            except AttributeError:
+                try:
+                    evolutionCondition.append(e.next_sibling.get_text())
+                except AttributeError:
+                    evolutionCondition.append(e.previous_sibling.get_text())
+        evolution=[x for x in evolutionCondition if x is not None]
+        print(evolution)
+        '''
+        if e.previous_sibling.string is None:
+        print(e.previous_sibling.string)
+        evolutionCondition.append(e.next_sibling.string)
+        else:
+        evolutionCondition.append(e.previous_sibling.string)
+        '''
         thisPokemonType = []
         # Checks if a pokemon has a certain type and appends it to its own list
-
         for x in range(2):
             if "title" not in pokemonType[x]:
                 for typeCheck in allTypes:
                     if typeCheck in pokemonType[x]:
                         thisPokemonType.append(typeCheck)
+
+        wFinder = tempSoup.find("th", string="Weight")
+        hFinder = tempSoup.find("th", string="Height")
+        weight = wFinder.next_sibling.next_sibling
+        height = hFinder.next_sibling.next_sibling
         # Apologies for the confusing variable names, this variable serves the same purpose as firstClosingBrace below,
         # but this time it's a local variable
         firstClosingBracket = pokedexNumber.index(">")
@@ -43,10 +67,11 @@ def printingInfo(pokemon):
         formattedPokedexNumber = pokedexNumber[firstClosingBracket + 1:firstClosingBracket + secondOpeningBracket + 1]
 
         # Appending the pokedex number and the name to the pokemon info list
-        pokemonInfo.append([formattedPokedexNumber, name, thisPokemonType])
+        pokemonInfo.append([formattedPokedexNumber, name, thisPokemonType, weight, height, evolution])
 
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
     # WE ARE JUST PRINTING FOR THE TIME BEING)
+    print(pokemonInfo)
     return pokemonInfo
 
 
