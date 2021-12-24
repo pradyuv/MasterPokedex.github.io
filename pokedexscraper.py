@@ -3,6 +3,20 @@ import requests
 import string
 from bs4 import BeautifulSoup
 
+# *********************************************************************************************************************** #
+#                                                     UNOFFICIAL POKEDEX (NAME PENDING)                                   #
+# Welcome to the unofficial pokedex, a joint project consisting of Pradyu and Meekyle. The aim for this project was to    #
+# create an online, interactive pokedex, putting our Python and web development skills to the test (two things that       #
+# we focused on heavily in the first semester of university). This Python script's main purpose is to collect             #
+# all the information necessary to create a pokedex. And, as the saying goes, why put in hard labour for a day to         #
+# collect said information when you could automate it within a week? This Python script scrapes the Pokemondb.net         #
+# website to gather the necessary information, and when we are done curating the data, we will write it to a file         #
+# which we will then use as a "database" of sorts for our interactive pokedex.                                            #
+#                                                                                                                         #
+# We sincerely hope you enjoy this project. There will definitely be more to come from both parties in the future.        #
+# *********************************************************************************************************************** #
+
+
 # This function here will take the processed names of each pokemon and then retrieve the necessary information
 # from pokemondb.net. So far, it will only retrieve the pokedex number, but it's a start. Next steps include typing
 # evolutions, evolution info (e.g. level it evolves at, specific conditions for evolution)
@@ -78,7 +92,7 @@ for i in range(len(pokedex)):
             formattedName += letter
         elif letter == " ":
             formattedName += "-"
-    
+
     # Some specific pokemon have characters that do not abide by UTF-8. As a result, it is necessary to hard
     # code them in otherwise the name that gets passed on for web scraping is some nonsense that points to
     # a webpage that does not exist. Gotta love Python
