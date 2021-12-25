@@ -21,24 +21,24 @@ for (let i = 0; i < rows+1; i++){
             document.getElementById("pokedexEntries").style.display = "none";
             document.getElementById("searchbar").style.display = "none";
 
-            let pokedexDiv = document.getElementById("pokedex");
-
             // Creating a back button to allow the user to get back to the general pokedex screen
-            var backButton = document.createElement("button");
-            var backButtonText = document.createTextNode("Back");
-            backButton.id = "back";
+            var backButton = document.getElementById("back");
 
             // Adding the functionality for the back button, allows the user to go between the specific Pokemon's pokedex entry and the
             // general pokedex
             backButton.onclick = function(){
-                document.getElementById("back").remove();
+                document.getElementById("back").style.display = "none";
+                document.getElementById("specific_pokemon").style.display = "none";
                 document.getElementById("pokedexEntries").style.display = "table";
-                document.getElementById("searchbar").style.display = "input";
+                document.getElementById("searchbar").style.display = "block";
             }
 
             // Adding all the elements to the webpage for the users to see
-            backButton.appendChild(backButtonText);
-            pokedexDiv.appendChild(backButton);
+            document.getElementById("specific_pokemon").style.display = "block";
+            document.getElementById("back").style.display = "block";
+
+            // Adding the necessary information to the screen
+            document.getElementById("pokedex-number-name").innerHTML = this.id + " - POKEMON NAME TO BE DECIDED ONCE FILE HAS BEEN CREATED";
         };
         // Ensuring that buttons that are more than necessary are not displayed on screen.
         if (counter < 899){
