@@ -7,9 +7,74 @@
     <body>
         <div id="pokedex">
             <p>Pokedex</p>
+            <div id="searchId">
+                <input id="searchbar" onkeyup="search()" type="text" name="search" placeholder="Enter pokemon here">
+            </div>
+            <br>
+            <br>
             <table id="pokedexEntries">
-
             </table>
+            <div id="specific_pokemon">
+                <button id="back"><</button>
+                <!-- Need Pokemon name, pokedex number -> DONE
+                Sprite for the pokemon 
+                Description
+                Types
+                Weight
+                Height-->
+                <p id="pokedex-number-name"></p>
+                <table id="pokemon-info">
+                    <tr>
+                        <td id="sprite" rowspan="3">Sprite of the pokemon</td>
+                        <td id="description">This is a description of the Pokemon</td>
+                    </tr>
+                    <tr>
+                        <td id="typing">This is the typing of the pokemon</td>
+                    </tr>
+                    <tr>
+                        <td id="abilities">These are the abilities of the pokemon</td>
+                    </tr>
+                    <tr>
+                        <td>Evolutionary Info</td>
+                        <td id="evolutionary-info"></td>
+                    </tr>
+                    <tr>
+                        <td>Region Introduced: </td>
+                        <td id="region-introduced"></td>
+                    </tr>
+                    <tr>
+                        <td id="blank-space" colspan="2"></td>
+                    </tr>
+                    <tr>
+                        <table id="base-stats">
+                            <tr>
+                                <td>HP</td>
+                                <td id="numeric-value-hp"></td>
+                            </tr>
+                            <tr>
+                                <td>Attack</td>
+                                <td id="numeric-value-attack"></td>
+                            </tr>
+                            <tr>
+                                <td>Defense</td>
+                                <td id="numeric-value-defense"></td>
+                            </tr>
+                            <tr>
+                                <td>Special Attack</td>
+                                <td id="numeric-value-special-attack"></td>
+                            </tr>
+                            <tr>
+                                <td>Special Defense</td>
+                                <td id="numeric-value-special-defense"></td>
+                            </tr>
+                            <tr>
+                                <td>Speed</td>
+                                <td id="numeric-value-speed"></td>
+                            </tr>
+                        </table>
+                    </tr>
+                </table>
+            </div>
         </div>
     </body>
     <script src="index.js"></script>
