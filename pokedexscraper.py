@@ -37,27 +37,40 @@ def printingInfo(pokemon):
 
         # Finding the element that contains the pokedex number for the pokemon. Fortunately for us, the pokedex
         # number is the only <strong> element in the entire webpage
-        pokedexNumber = str(tempSoup.find("strong"))
+        pokedexNumber = int(tempSoup.find("strong").get_text())
         pokemonType = list(tempSoup.findAll("a", class_="type-icon"))
         evolutionConditionRaw = list((tempSoup.findAll("i", class_="icon-arrow")))
-        pokemonIconSrcFinder = str(list(tempSoup.find("a",{"rel":"lightbox"})))
-        startSrc=pokemonIconSrcFinder.index("src=")
+        if name!="Pumpkaboo" and name!="Gourgeist":
+            pokemonIconSrcFinder = str(list(tempSoup.find("a",{"rel":"lightbox"})))
+            startSrc = pokemonIconSrcFinder.index("src=")
+        elif name == 'Pumpkaboo':
+            pokemonIconSrcFinder = '"https://img.pokemondb.net/artwork/pumpkaboo.jpg"'
+            startSrc=None
+        else:
+            pokemonIconSrcFinder = '"https://img.pokemondb.net/artwork/gourgeist.jpg"'
+            startSrc=None
         endSrclst=[]
-        for j in range(len(pokemonIconSrcFinder)-1,0,-1):
-            if pokemonIconSrcFinder[j]=='"':
-                endSrclst.append(j)
-            if len(endSrclst)>=3:
-                break
-        pokemonIconSrc=pokemonIconSrcFinder[startSrc+len("src="):endSrclst[-1]+1]
+        if startSrc is not None:
+            for j in range(len(pokemonIconSrcFinder)-1,0,-1):
+                if pokemonIconSrcFinder[j]=='"':
+                    endSrclst.append(j)
+                if len(endSrclst)>=3:
+                    break
+            pokemonIconSrc = pokemonIconSrcFinder[startSrc + len("src="):endSrclst[-1] + 1]
+        pokemonDescp=(tempSoup.find("td",class_="cell-med-text")).string
         evolutionCondition = []
         for e in evolutionConditionRaw:
-            try:
-                evolutionCondition.append(e.next_sibling.get_text())
-            except AttributeError:
+            if name == "Nincada" or name == "Ninjask" or name == "Shedinja":
+                evolutionCondition.append(['(Level 20)','(Level 20, empty spot in party, Pokéball in bag)'])
+                continue
+            else:
                 try:
                     evolutionCondition.append(e.next_sibling.get_text())
                 except AttributeError:
-                    evolutionCondition.append(e.previous_sibling.get_text())
+                    try:
+                        evolutionCondition.append(e.next_sibling.get_text())
+                    except AttributeError:
+                        evolutionCondition.append(e.previous_sibling.get_text())
         evolution = [x for x in evolutionCondition if x is not None]
         thisPokemonType = []
         # Checks if a pokemon has a certain type and appends it to its own list
@@ -66,22 +79,33 @@ def printingInfo(pokemon):
                 for typeCheck in allTypes:
                     if typeCheck in pokemonType[x]:
                         thisPokemonType.append(typeCheck)
-
         wFinder = tempSoup.find("th", string="Weight")
         hFinder = tempSoup.find("th", string="Height")
+        baseStats=(tempSoup.find("td", class_="cell-total")).string
+
+        if 0<pokedexNumber<=151:
+            generationIntro=(1,"Kanto")
+        elif 151<pokedexNumber<=251:
+            generationIntro=(2,"Johto")
+        elif 251<pokedexNumber<=386:
+            generationIntro=(3,"Hoenn")
+        elif 386<pokedexNumber<=493:
+            generationIntro=(4,"Sinnoh")
+        elif 493<pokedexNumber<=649:
+            generationIntro=(5,"Unova")
+        elif 649<pokedexNumber<=721:
+            generationIntro=(6,"Kalos")
+        elif 721<pokedexNumber<=809:
+            generationIntro=(7,"Alola")
+        else:
+            generationIntro=(8,Galar)
+
+        abilitesList=tempSoup.findAll("a",href_="/ability/")
         weight = wFinder.next_sibling.next_sibling
         height = hFinder.next_sibling.next_sibling
-        # Apologies for the confusing variable names, this variable serves the same purpose as firstClosingBrace below,
-        # but this time it's a local variable
-        firstClosingBracket = pokedexNumber.index(">")
-        # Same purpose as above, just trying to find the index
-        secondOpeningBracket = pokedexNumber[firstClosingBracket + 1:].index("<")
-
-        # Properly formatting the pokedex number so that it's easy to read when displayed on screen
-        formattedPokedexNumber = pokedexNumber[firstClosingBracket + 1:firstClosingBracket + secondOpeningBracket + 1]
 
         # Appending the pokedex number and the name to the pokemon info list
-        pokemonInfo.append([formattedPokedexNumber, name, thisPokemonType, weight, height, evolution,pokemonIconSrc])
+        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolution,pokemonIconSrc,pokemonDescp,baseStats,abilitesList])
 
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
     # WE ARE JUST PRINTING FOR THE TIME BEING)
@@ -159,4 +183,4 @@ for i in range(len(pokedex)):
 info = printingInfo(pokemon_names)
 
 # Printing just for the sake of debugging. WILL BE REMOvED IN THE FINAL PRODUCT
-print(info)
+#print(info)
