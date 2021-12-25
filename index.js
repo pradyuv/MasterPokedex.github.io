@@ -12,12 +12,35 @@ for (let i = 0; i < rows+1; i++){
     for (let j = 0; j < 3; j++){
         var cell = document.createElement("td");
         // Adding a button with the counter as its inner text to simulate the pokedex entries (will be replaced with image of the sprite)
-        // NEXT STEPS:
-        // IMPLEMENT SEARCH FUNCTIONALITY, FOR THAT WILL PROBABLY NEED TO ADD ID WHICH IS EQUAL TO THE NAME OF THE POKEMON (WE WILL HAVE THIS
-        // WITH THE FILE)
         var button = document.createElement("button");
         var text = document.createTextNode(counter);
         button.id = counter;
+        // Setting the on click functionality of the button. If a user clicks a specific button, it is the same as them selecting a
+        // specific pokemon to learn more about. Only makes sense for us to display the information the user might be looking for.
+        button.onclick = function(){
+            document.getElementById("pokedexEntries").style.display = "none";
+            document.getElementById("searchbar").style.display = "none";
+
+            let pokedexDiv = document.getElementById("pokedex");
+
+            // Creating a back button to allow the user to get back to the general pokedex screen
+            var backButton = document.createElement("button");
+            var backButtonText = document.createTextNode("Back");
+            backButton.id = "back";
+
+            // Adding the functionality for the back button, allows the user to go between the specific Pokemon's pokedex entry and the
+            // general pokedex
+            backButton.onclick = function(){
+                document.getElementById("back").remove();
+                document.getElementById("pokedexEntries").style.display = "table";
+                document.getElementById("searchbar").style.display = "input";
+            }
+
+            // Adding all the elements to the webpage for the users to see
+            backButton.appendChild(backButtonText);
+            pokedexDiv.appendChild(backButton);
+        };
+        // Ensuring that buttons that are more than necessary are not displayed on screen.
         if (counter < 899){
             button.appendChild(text);
             cell.appendChild(button);
