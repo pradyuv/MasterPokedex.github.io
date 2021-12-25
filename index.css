@@ -3,14 +3,14 @@ body{
     font-family: "Arial";
 }
 
+/* ================================================ GENERAL MENU ===================================== */
 /* Styling the pokedex id*/
 #pokedex{
-    width: 400px;
-    height: 600px;
+    width: 500px;
+    height: 700px;
     background-color: lightblue;
     margin: 0 auto;
     overflow-y: scroll;
-    margin-top: 5%;
     border: 2px solid black;
 }
 
@@ -56,4 +56,55 @@ td button:hover{
 input{
     margin: 0 auto;
     display: block;
+}
+
+
+/* ============================================= MENU SPECIFIC TO EACH POKEMON ================================================ */
+#back{
+    border: 4px solid white;
+    width: 70px;
+    height: 40px;
+    margin-left: 15px;
+    border-radius: 8px;
+    top: 0; 
+}
+
+#back:hover{
+    background-color: rgba(211, 211, 211, 0.5);
+}
+
+
+#specific_pokemon{
+    display: none;
+}
+
+#pokedex-number-name{
+    text-decoration: underline;
+}
+
+#pokemon-info, #base-stats{
+    text-align: center;
+    margin: 0 auto;
+    width: 90%;
+    background-color: white;
+    border-collapse: collapse;
+}
+
+#pokemon-info td, #base-stats td{
+    border: 2px solid black;
+}
+
+#sprite{
+    width: 200px;
+    height: 200px;
+}
+
+#numeric-value-hp, #numeric-value-attack, #numeric-value-defense, #numeric-value-special-attack, #numeric-value-special-defense, #numeric-value-speed{
+    width: 80%;
+}
+
+
+#blank-space{
+    border: 0 !important;
+    height: 20px;
 }
