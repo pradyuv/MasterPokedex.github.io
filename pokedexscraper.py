@@ -262,4 +262,12 @@ for i in range(len(pokedex)):
 # Calling the printingInfo function to retrieve the pokedex numbers of each entry
 info = printingInfo(pokemon_names)
 
+with open("masterpokedex.txt.txt",mode="wt",encoding="utf-8") as pseudoDB:
+    for pokemon in info:
+        for element in pokemon:
+            pseudoDB.write(str(element))
+            pseudoDB.write("\n")
+        pseudoDB.write("δ")
+        pseudoDB.write("\n")
+
 
