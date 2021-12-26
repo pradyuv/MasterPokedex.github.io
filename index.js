@@ -25,6 +25,7 @@ function loadFile(){
             let individualEntries = element.split("\n");
             console.log(individualEntries);
         })
+
     }
 }
 
