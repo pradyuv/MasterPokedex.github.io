@@ -39,6 +39,34 @@ for (let i = 0; i < rows+1; i++){
 
             // Adding the necessary information to the screen
             document.getElementById("pokedex-number-name").innerHTML = this.id + " - POKEMON NAME TO BE DECIDED ONCE FILE HAS BEEN CREATED";
+
+            // The current pokemon's base stat for each stat
+            var hp = 100;
+            var attack = 100;
+            var defense = 100;
+            var specialattack = 100;
+            var specialdefense = 100;
+            var speed = 100;
+
+            // The max base stat for any pokemon
+            const max = 255;
+
+            // Calculating the percentage of the bar that must be filled in
+            var healthpercentage = (hp / max) * 100 + "%";
+            var attackpercentage = (attack / max) * 100 + "%";
+            var defensepercentage = (defense / max) * 100 + "%";
+            var specialattackpercentage = (specialattack / max) * 100 + "%";
+            var specialdefensepercentage = (specialdefense / max) * 100 + "%";
+            var speedpercentage = (speed / max) * 100 + "%";
+
+            // Setting the size of the div accordingly
+            document.getElementById("health-bar-diagram").style.width = healthpercentage;
+            document.getElementById("attack-bar-diagram").style.width = attackpercentage;
+            document.getElementById("defense-bar-diagram").style.width = defensepercentage;
+            document.getElementById("special-attack-bar-diagram").style.width = specialattackpercentage;
+            document.getElementById("special-defense-bar-diagram").style.width = specialdefensepercentage;
+            document.getElementById("speed-bar-diagram").style.width = speedpercentage;
+            
         };
         // Ensuring that buttons that are more than necessary are not displayed on screen.
         if (counter < 899){
