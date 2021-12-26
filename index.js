@@ -43,7 +43,7 @@ function loadFile(){
                 let baseStats = individualEntries[10];
                 let totalStats = individualEntries[8];
                 let region = individualEntries[11];
-
+                console.log(typeof individualEntries[1]);
                 pokemonDict[individualEntries[1]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
                 pokemonNames.push(individualEntries[1]);
             } else {
