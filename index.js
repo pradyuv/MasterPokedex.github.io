@@ -43,9 +43,10 @@ function loadFile(){
                 let baseStats = individualEntries[10];
                 let totalStats = individualEntries[8];
                 let region = individualEntries[11];
-                console.log(typeof individualEntries[1]);
+
                 pokemonDict[individualEntries[1]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
-                pokemonNames.push(individualEntries[1]);
+                let pokemonName = individualEntries[1];
+                pokemonNames.push(pokemonName);
             } else {
                 let pokedexNumber = individualEntries[1];
                 let typing = individualEntries[3];
@@ -60,7 +61,8 @@ function loadFile(){
                 let region = individualEntries[12];
 
                 pokemonDict[individualEntries[2]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
-                pokemonNames.push(individualEntries[2]);
+                let pokemonName = individualEntries[2];
+                pokemonNames.push(pokemonName);
             }
         });
 
