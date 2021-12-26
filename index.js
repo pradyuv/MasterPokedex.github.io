@@ -16,7 +16,7 @@ function loadFile(){
 
     if (xmlhttp.status == 200){
         fileContents = xmlhttp.responseText;
-        console.log(result);
+        console.log(fileContents);
     }
 }
 // Looping through the table, and adding the table rows and table data elements accordingly
