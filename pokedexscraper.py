@@ -172,17 +172,21 @@ def printingInfo(pokemon):
         pokeSpDef=tempSoup.find("th",string="Sp. Def").next_sibling.next_sibling.string
         pokeSpeed=tempSoup.find("th",string="Speed").next_sibling.next_sibling.string
         pokeStats=["HP: "+pokeHP,"Attack "+pokeAtt,"Defense "+pokeDef,"Special Attack "+pokeSpAtt,"Special Defense "+pokeSpDef,"Speed "+pokeSpeed]
-        weight = wFinder.next_sibling.next_sibling
-        height = hFinder.next_sibling.next_sibling
+        weight = wFinder.next_sibling.next_sibling.get_text()
+        height = hFinder.next_sibling.next_sibling.get_text()
         # Appending the pokedex number and the name to the pokemon info list
         possibleAbiltiesRaw = [normalAbilityOne, normalAbilityTwo]
         for h in range(len(possibleAbiltiesRaw)):
+            if not possibleAbiltiesRaw[h]:
+                possibleAbiltiesRaw[h]=None
+                continue
             for v in range(len(possibleAbiltiesRaw[h])):
-                if (possibleAbiltiesRaw[h][v].isalpha() or possibleAbiltiesRaw[h][v] ==' ') == False:
+                if (possibleAbiltiesRaw[h][v].isalpha() or possibleAbiltiesRaw[h][v]==' ')==False:
                     possibleAbiltiesRaw[h]=None
                     break
         possibleAbilites=[s for s in possibleAbiltiesRaw if s is not None]
-        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolution,pokemonIconSrc,pokemonDescp,baseStats,possibleAbilites,pokeStats])
+        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolution,pokemonIconSrc,pokemonDescp,baseStats,possibleAbilites,pokeStats,generationIntro])
+
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
     # WE ARE JUST PRINTING FOR THE TIME BEING)
     return pokemonInfo
@@ -258,5 +262,4 @@ for i in range(len(pokedex)):
 # Calling the printingInfo function to retrieve the pokedex numbers of each entry
 info = printingInfo(pokemon_names)
 
-# Printing just for the sake of debugging. WILL BE REMOvED IN THE FINAL PRODUCT
-#print(info)
+
