@@ -10,6 +10,9 @@ let counter = 1;
 const filePath = "masterpokedex.txt";
 let fileContents;
 
+// Composition of the dictionary will be as follows:
+// "name": [pokedex number, [typing], mass, height, [evolutionary info], img src, description, abilities, [stats], total stats, region]
+let pokemonDict = {}
 function loadFile(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", filePath, false);
@@ -20,11 +23,43 @@ function loadFile(){
 
         // We know that each entry is separated by the "δ" character
         let pokedexEntries = fileContents.split("δ");
-        
+
+        // Will have to process the elements here
         pokedexEntries.forEach(element => {
             let individualEntries = element.split("\n");
-            console.log(individualEntries);
-        })
+
+            if (counter == 1){
+                let pokedexNumber = individualEntries[0];
+                let typing = individualEntries[2];
+                let weight = individualEntries[3];
+                let height = individualEntries[4];
+                let evolutionaryInfo = individualEntries[5];
+                let imageSrc = individualEntries[6];
+                let description = individualEntries[7];
+                let abilities = individualEntries[9];
+                let baseStats = individualEntries[10];
+                let totalStats = individualEntries[8];
+                let region = individualEntries[11];
+
+                pokemonDict[individualEntries[1]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
+            } else {
+                let pokedexNumber = individualEntries[1];
+                let typing = individualEntries[3];
+                let weight = individualEntries[4];
+                let height = individualEntries[5];
+                let evolutionaryInfo = individualEntries[6];
+                let imageSrc = individualEntries[7];
+                let description = individualEntries[8];
+                let abilities = individualEntries[10];
+                let baseStats = individualEntries[11];
+                let totalStats = individualEntries[9];
+                let region = individualEntries[12];
+
+                pokemonDict[individualEntries[2]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
+            }
+        });
+
+        console.log(pokemonDict);
     }
 }
 
