@@ -77,7 +77,7 @@ function loadTable(){
             var button = document.createElement("button");
             var text = document.createTextNode(counter);
             button.id = pokemonNames[counter - 1];
-            console.log(button.id);
+            console.log(pokemonNames[counter - 1]);
             // Setting the on click functionality of the button. If a user clicks a specific button, it is the same as them selecting a
             // specific pokemon to learn more about. Only makes sense for us to display the information the user might be looking for.
             button.onclick = function(){
