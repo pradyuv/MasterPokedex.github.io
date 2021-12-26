@@ -16,6 +16,7 @@ function loadFile(){
 
     if (xmlhttp.status == 200){
         fileContents = xmlhttp.responseText;
+        // Will need to process the file contents, maybe use a dictionary of sorts?
         console.log(fileContents);
     }
 }

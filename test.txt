@@ -1,1 +1,1 @@
-This is a test to see if it is possible to read a file
+1 Bulbasaur ['Grass', 'Poison'] 6.9 kg (15.2 lbs) 0.7m (2'0.4") ['(Level 16)', '(Level 32)'] "img source"
