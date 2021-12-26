@@ -99,12 +99,40 @@ input{
     height: 200px;
 }
 
-#numeric-value-hp, #numeric-value-attack, #numeric-value-defense, #numeric-value-special-attack, #numeric-value-special-defense, #numeric-value-speed{
-    width: 80%;
+#label, #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
+    display: inline-block;
 }
 
+#label{
+    width: 40%;
+    text-align: left;
+    padding-left: 10px;
+}
+#health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
+    width: 55%;
+}
 
-#blank-space{
-    border: 0 !important;
-    height: 20px;
+#health-bar-diagram{
+    background-color: red;
+
+}
+
+#attack-bar-diagram{
+    background-color: blue;
+}
+
+#defense-bar-diagram{
+    background-color: green;
+}
+
+#special-attack-bar-diagram{
+    background-color: orange;
+}
+
+#special-defense-bar-diagram{
+    background-color: yellow;
+}
+
+#speed-bar-diagram{
+    background-color: black;
 }
