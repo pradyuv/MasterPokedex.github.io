@@ -4,8 +4,9 @@
         <title>Interactive Pokedex</title>
         <link href="index.css" rel="stylesheet">
     </head>
-    <body>
+    <body onload="loadFile()">
         <div id="pokedex">
+            <p class="test"></p>
             <p>Pokedex</p>
             <div id="searchId">
                 <input id="searchbar" onkeyup="search()" type="text" name="search" placeholder="Enter pokemon here">
@@ -16,12 +17,6 @@
             </table>
             <div id="specific_pokemon">
                 <button id="back"><</button>
-                <!-- Need Pokemon name, pokedex number -> DONE
-                Sprite for the pokemon 
-                Description
-                Types
-                Weight
-                Height-->
                 <p id="pokedex-number-name"></p>
                 <table id="pokemon-info">
                     <tr>
@@ -101,6 +96,10 @@
                 </div>
             </div>
         </div>
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+        crossorigin="anonymous"></script>
     </body>
     <script src="index.js"></script>
 </html>

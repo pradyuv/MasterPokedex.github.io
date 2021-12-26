@@ -6,6 +6,19 @@ let rows = (898 - 898 % 3) / 3;
 // Keeping track of what pokedex number we are on
 let counter = 1;
 
+const filePath = "test.txt";
+let fileContents;
+
+function loadFile(){
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("GET", filePath, false);
+    xmlhttp.send();
+
+    if (xmlhttp.status == 200){
+        fileContents = xmlhttp.responseText;
+        console.log(result);
+    }
+}
 // Looping through the table, and adding the table rows and table data elements accordingly
 for (let i = 0; i < rows+1; i++){
     var row = document.createElement("tr");
@@ -66,7 +79,7 @@ for (let i = 0; i < rows+1; i++){
             var specialdefensepercentage = (specialdefense / max) * 100 + "%";
             var speedpercentage = (speed / max) * 100 + "%";
 
-            // Setting the size of the div accordingly
+            // Setting the size of the div and colour of the bar accordingly
             document.getElementById("health-bar-diagram").style.width = healthpercentage;
             document.getElementById("health-bar-diagram").style.backgroundColor = hpColour;
 
@@ -121,7 +134,8 @@ function search(){
 }
 
 function assignColour(percentage){
-    // Returning the colour based on what percentage the stat is relative to the max base stat
+    // Returning the colour based on what percentage the stat is relative to the max base stat. Will need to change some of the weightings
+    // as the colours don't match up. Using the Pokemondb colours for reference.
     if (percentage <= 10){
         return "rgba(243, 68, 68, 255)";
     } else if (percentage > 10 && percentage <= 24){
@@ -136,3 +150,5 @@ function assignColour(percentage){
         return "rgba(0, 194, 184, 255)";
     }
 }
+
+
