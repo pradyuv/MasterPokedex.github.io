@@ -28,7 +28,7 @@ function loadFile(){
         pokedexEntries.forEach(element => {
             let individualEntries = element.split("\n");
 
-            if (counter == 1){
+            if (individualEntries[1] == "Bulbasaur"){
                 let pokedexNumber = individualEntries[0];
                 let typing = individualEntries[2];
                 let weight = individualEntries[3];
