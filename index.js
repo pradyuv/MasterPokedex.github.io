@@ -6,7 +6,8 @@ let rows = (898 - 898 % 3) / 3;
 // Keeping track of what pokedex number we are on
 let counter = 1;
 
-const filePath = "test.txt";
+// Will need to change the file path here
+const filePath = "masterpokedex.txt";
 let fileContents;
 
 function loadFile(){
