@@ -66,7 +66,7 @@ input{
     height: 40px;
     margin-left: 15px;
     border-radius: 8px;
-    top: 0; 
+    top: 0;
 }
 
 #back:hover{
@@ -86,7 +86,6 @@ input{
     text-align: center;
     margin: 0 auto;
     width: 90%;
-    background-color: white;
     border-collapse: collapse;
 }
 
@@ -112,27 +111,6 @@ input{
     width: 55%;
 }
 
-#health-bar-diagram{
-    background-color: red;
-
-}
-
-#attack-bar-diagram{
-    background-color: blue;
-}
-
-#defense-bar-diagram{
-    background-color: green;
-}
-
-#special-attack-bar-diagram{
-    background-color: orange;
-}
-
-#special-defense-bar-diagram{
-    background-color: yellow;
-}
-
-#speed-bar-diagram{
-    background-color: black;
+#health-bar-diagram, #attack-bar-diagram, #defense-bar-diagram, #special-attack-bar-diagram, #special-defense-bar-diagram, #speed-bar-diagram {
+    border-radius: 4px;
 }
