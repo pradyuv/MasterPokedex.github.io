@@ -165,7 +165,13 @@ def printingInfo(pokemon):
                     break
             normalAbilityOne = normalAbilityOneRaw[openingBraceAbilityOne + 1:closingBraceAbilityOne]
             normalAbilityTwo = normalAbilityTwoRaw[openingBraceAbilityTwo + 1:closingBraceAbilityTwo]
-
+        pokeHP=tempSoup.find("th",string="HP").next_sibling.next_sibling.string
+        pokeAtt=tempSoup.find("th",string="Attack").next_sibling.next_sibling.string
+        pokeDef=tempSoup.find("th",string="Defense").next_sibling.next_sibling.string
+        pokeSpAtt=tempSoup.find("th",string="Sp. Atk").next_sibling.next_sibling.string
+        pokeSpDef=tempSoup.find("th",string="Sp. Def").next_sibling.next_sibling.string
+        pokeSpeed=tempSoup.find("th",string="Speed").next_sibling.next_sibling.string
+        pokeStats=["HP: "+pokeHP,"Attack "+pokeAtt,"Defense "+pokeDef,"Special Attack "+pokeSpAtt,"Special Defense "+pokeSpDef,"Speed "+pokeSpeed]
         weight = wFinder.next_sibling.next_sibling
         height = hFinder.next_sibling.next_sibling
         # Appending the pokedex number and the name to the pokemon info list
@@ -176,8 +182,7 @@ def printingInfo(pokemon):
                     possibleAbiltiesRaw[h]=None
                     break
         possibleAbilites=[s for s in possibleAbiltiesRaw if s is not None]
-        print(possibleAbilites)
-        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolution,pokemonIconSrc,pokemonDescp,baseStats,possibleAbilites])
+        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolution,pokemonIconSrc,pokemonDescp,baseStats,possibleAbilites,pokeStats])
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
     # WE ARE JUST PRINTING FOR THE TIME BEING)
     return pokemonInfo
