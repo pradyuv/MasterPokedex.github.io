@@ -16,6 +16,7 @@ let pokemonDict = {};
 
 // A list that contains the name of all Pokemon, this is so that setting the id of each button is easier
 let pokemonNames = [];
+
 function loadFile(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", filePath, false);
@@ -64,6 +65,8 @@ function loadFile(){
                 let pokemonName = individualEntries[2];
                 pokemonNames.push(pokemonName);
             }
+
+            console.log(pokemonNames);
         });
 
     }
