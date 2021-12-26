@@ -12,7 +12,10 @@ let fileContents;
 
 // Composition of the dictionary will be as follows:
 // "name": [pokedex number, [typing], mass, height, [evolutionary info], img src, description, abilities, [stats], total stats, region]
-let pokemonDict = {}
+let pokemonDict = {};
+
+// A list that contains the name of all Pokemon, this is so that setting the id of each button is easier
+let pokemonNames = [];
 function loadFile(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", filePath, false);
@@ -42,6 +45,7 @@ function loadFile(){
                 let region = individualEntries[11];
 
                 pokemonDict[individualEntries[1]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
+                pokemonNames.push(individualEntries[1]);
             } else {
                 let pokedexNumber = individualEntries[1];
                 let typing = individualEntries[3];
@@ -56,10 +60,10 @@ function loadFile(){
                 let region = individualEntries[12];
 
                 pokemonDict[individualEntries[2]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
+                pokemonNames.push(individualEntries[2]);
             }
         });
 
-        console.log(pokemonDict);
     }
 }
 
@@ -72,7 +76,8 @@ function loadTable(){
             // Adding a button with the counter as its inner text to simulate the pokedex entries (will be replaced with image of the sprite)
             var button = document.createElement("button");
             var text = document.createTextNode(counter);
-            button.id = counter;
+            button.id = pokemonNames[counter - 1];
+            console.log(button.id);
             // Setting the on click functionality of the button. If a user clicks a specific button, it is the same as them selecting a
             // specific pokemon to learn more about. Only makes sense for us to display the information the user might be looking for.
             button.onclick = function(){
