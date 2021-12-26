@@ -17,8 +17,15 @@ function loadFile(){
 
     if (xmlhttp.status == 200){
         fileContents = xmlhttp.responseText;
-        // Will need to process the file contents, maybe use a dictionary of sorts?
-        console.log(typeof fileContents);
+
+        // We know that each entry is separated by the "δ" character
+        let pokedexEntries = fileContents.split("δ");
+        
+        pokedexEntries.forEach(element => {
+            let individualEntries = element.split("\n");
+            console.log(individualEntries);
+        })
+
     }
 }
 
