@@ -2,6 +2,7 @@
 import requests
 import string
 from bs4 import BeautifulSoup
+import re
 
 # *********************************************************************************************************************** #
 #                                                     UNOFFICIAL POKEDEX (NAME PENDING)                                   #
@@ -37,7 +38,14 @@ def printingInfo(pokemon):
 
         # Finding the element that contains the pokedex number for the pokemon. Fortunately for us, the pokedex
         # number is the only <strong> element in the entire webpage
-        pokedexNumber = int(tempSoup.find("strong").get_text())
+        if name!="Zygarde" and name!="Toxel" and name!="Toxtricity":
+            pokedexNumber = int(tempSoup.find("strong").get_text())
+        elif name == "Zygarde":
+            pokedexNumber=718
+        elif name == "Toxel":
+            pokedexNumber=848
+        elif name == "Toxtricity":
+            pokedexNumber=849
         pokemonType = list(tempSoup.findAll("a", class_="type-icon"))
         evolutionConditionRaw = list((tempSoup.findAll("i", class_="icon-arrow")))
         if name!="Pumpkaboo" and name!="Gourgeist":
@@ -98,15 +106,78 @@ def printingInfo(pokemon):
         elif 721<pokedexNumber<=809:
             generationIntro=(7,"Alola")
         else:
-            generationIntro=(8,Galar)
+            generationIntro=(8,"Galar")
+        normalAbilitiesList=list(tempSoup.findAll("span",class_="text-muted",limit=3))
+        try:
+            normalAbilityOneRaw=str(normalAbilitiesList[0])
+            normalAbilityTwoRaw=str(normalAbilitiesList[1])
+        except IndexError:
+            x = 0
+            y = 0
+            openingBraceAbilityOne = 0
+            closingBraceAbilityOne = 0
+            for m in range(len(normalAbilityOneRaw)):
+                if normalAbilityOneRaw[m] == ">":
+                    x += 1
+                if x == 2:
+                    openingBraceAbilityOne = m
+                    break
+            for k in range(len(normalAbilityOneRaw)):
+                if normalAbilityOneRaw[k] == "<":
+                    y += 1
+                if y == 3:
+                    closingBraceAbilityOne = k
+                    break
+            normalAbilityOne = normalAbilityOneRaw[openingBraceAbilityOne + 1:closingBraceAbilityOne]
+            normalAbilityTwo=''
+        else:
+            x = 0
+            y = 0
+            openingBraceAbilityOne = 0
+            closingBraceAbilityOne = 0
+            for m in range(len(normalAbilityOneRaw)):
+                if normalAbilityOneRaw[m] == ">":
+                    x += 1
+                if x == 2:
+                    openingBraceAbilityOne = m
+                    break
+            for k in range(len(normalAbilityOneRaw)):
+                if normalAbilityOneRaw[k] == "<":
+                    y += 1
+                if y == 3:
+                    closingBraceAbilityOne = k
+                    break
+            x = 0
+            y = 0
+            openingBraceAbilityTwo = 0
+            closingBraceAbilityTwo = 0
+            for c in range(len(normalAbilityTwoRaw)):
+                if normalAbilityTwoRaw[c] == ">":
+                    x += 1
+                if x == 2:
+                    openingBraceAbilityTwo = c
+                    break
+            for d in range(len(normalAbilityTwoRaw)):
+                if normalAbilityTwoRaw[d] == "<":
+                    y += 1
+                if y == 3:
+                    closingBraceAbilityTwo = d
+                    break
+            normalAbilityOne = normalAbilityOneRaw[openingBraceAbilityOne + 1:closingBraceAbilityOne]
+            normalAbilityTwo = normalAbilityTwoRaw[openingBraceAbilityTwo + 1:closingBraceAbilityTwo]
 
-        abilitesList=tempSoup.findAll("a",href_="/ability/")
         weight = wFinder.next_sibling.next_sibling
         height = hFinder.next_sibling.next_sibling
-
         # Appending the pokedex number and the name to the pokemon info list
-        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolution,pokemonIconSrc,pokemonDescp,baseStats,abilitesList])
-
+        possibleAbiltiesRaw = [normalAbilityOne, normalAbilityTwo]
+        for h in range(len(possibleAbiltiesRaw)):
+            for v in range(len(possibleAbiltiesRaw[h])):
+                if (possibleAbiltiesRaw[h][v].isalpha() or possibleAbiltiesRaw[h][v] ==' ') == False:
+                    possibleAbiltiesRaw[h]=None
+                    break
+        possibleAbilites=[s for s in possibleAbiltiesRaw if s is not None]
+        print(possibleAbilites)
+        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolution,pokemonIconSrc,pokemonDescp,baseStats,possibleAbilites])
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
     # WE ARE JUST PRINTING FOR THE TIME BEING)
     return pokemonInfo
