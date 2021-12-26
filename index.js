@@ -41,15 +41,22 @@ for (let i = 0; i < rows+1; i++){
             document.getElementById("pokedex-number-name").innerHTML = this.id + " - POKEMON NAME TO BE DECIDED ONCE FILE HAS BEEN CREATED";
 
             // The current pokemon's base stat for each stat
-            var hp = 100;
-            var attack = 100;
-            var defense = 100;
-            var specialattack = 100;
-            var specialdefense = 100;
-            var speed = 100;
+            var hp = 50;
+            var attack = 150;
+            var defense = 50;
+            var specialattack = 150;
+            var specialdefense = 50;
+            var speed = 150;
 
             // The max base stat for any pokemon
             const max = 255;
+
+            var hpColour = assignColour((hp / max) * 100);
+            var attackColour = assignColour((attack / max) * 100);
+            var defenseColour = assignColour((defense / max) * 100);
+            var specialAttackColour = assignColour((specialattack / max) * 100);
+            var specialDefenseColour = assignColour((specialdefense / max) * 100);
+            var speedColour = assignColour((speed / max) * 100);
 
             // Calculating the percentage of the bar that must be filled in
             var healthpercentage = (hp / max) * 100 + "%";
@@ -61,12 +68,22 @@ for (let i = 0; i < rows+1; i++){
 
             // Setting the size of the div accordingly
             document.getElementById("health-bar-diagram").style.width = healthpercentage;
+            document.getElementById("health-bar-diagram").style.backgroundColor = hpColour;
+
             document.getElementById("attack-bar-diagram").style.width = attackpercentage;
+            document.getElementById("attack-bar-diagram").style.backgroundColor = attackColour;
+
             document.getElementById("defense-bar-diagram").style.width = defensepercentage;
+            document.getElementById("defense-bar-diagram").style.backgroundColor = defenseColour;
+
             document.getElementById("special-attack-bar-diagram").style.width = specialattackpercentage;
+            document.getElementById("special-attack-bar-diagram").style.backgroundColor = specialAttackColour;
+
             document.getElementById("special-defense-bar-diagram").style.width = specialdefensepercentage;
+            document.getElementById("special-defense-bar-diagram").style.backgroundColor = specialDefenseColour;
+
             document.getElementById("speed-bar-diagram").style.width = speedpercentage;
-            
+            document.getElementById("speed-bar-diagram").style.backgroundColor = speedColour;
         };
         // Ensuring that buttons that are more than necessary are not displayed on screen.
         if (counter < 899){
@@ -100,5 +117,22 @@ function search(){
                 data[j].style.display = "table-cell";
             }
         }
+    }
+}
+
+function assignColour(percentage){
+    // Returning the colour based on what percentage the stat is relative to the max base stat
+    if (percentage <= 10){
+        return "rgba(243, 68, 68, 255)";
+    } else if (percentage > 10 && percentage <= 24){
+        return "rgba(255, 127, 15, 255)";
+    } else if (percentage > 24 && percentage <= 39){
+        return "rgba(255, 221, 87, 255)";
+    } else if (percentage > 39 && percentage <= 54){
+        return "rgba(160, 229, 21, 255)";
+    } else if (percentage > 50 && percentage <= 55){
+        return "rgba(35, 205, 94, 255)";
+    } else {
+        return "rgba(0, 194, 184, 255)";
     }
 }
