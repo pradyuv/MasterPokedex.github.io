@@ -216,11 +216,12 @@ function getStats(listOfStats){
     // of information so that we're left with the numbers
     let returnList = [];
 
-    for (let i = 0; i < listOfStats.length; i++){
-        console.log(listOfStats[i]);
-        let splitList = listOfStats[i].split(" ");
-        console.log(splitList);
-        returnList.push(splitList[splitList.length - 1]);
+    let splitList = listOfStats.split(" ");
+
+    for (let i = 0; i < splitList.length; i++){
+        if (i % 2 == 1){
+            returnList.push(splitList[i]);
+        }
     }
 
     return returnList;
