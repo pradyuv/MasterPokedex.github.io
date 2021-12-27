@@ -108,9 +108,12 @@ function loadTable(){
                 // Adding the necessary information to the screen
                 document.getElementById("pokedex-number-name").innerHTML = pokemonDict[this.id][0] + ". " + this.id;
 
+                // Now need to do sprite, description, typing, abilities, evolutionary info, region introduced, height and weight
+                let imageSrc = "" + pokemonDict[this.id][5] + "";
+                document.getElementById("spriteImage").src = imageSrc;
                 // The current pokemon's base stat for each stat
                 let stats = getStats(pokemonDict[this.id][8]);
-                console.log(stats)
+
                 var hp = stats[0];
                 var attack = stats[1];
                 var defense = stats[2];
@@ -216,6 +219,8 @@ function getStats(listOfStats){
     // of information so that we're left with the numbers
     let splitList = listOfStats.split(" ");
 
+    // Would use a traditional for loop, but "Special Attack" and "Special Defense" messes everything up and doesn't allow for clean splitting 
+    // on the space character
     let hp = parseInt(splitList[1]);
     let attack = parseInt(splitList[3]);
     let defense = parseInt(splitList[5]);
@@ -223,5 +228,6 @@ function getStats(listOfStats){
     let specialDefense = parseInt(splitList[11]);
     let speed = parseInt(splitList[13]);
 
+    // Returning a list with all the processed stats 
     return [hp, attack, defense, specialAttack, specialDefense, speed];
 }
