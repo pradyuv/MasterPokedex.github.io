@@ -109,13 +109,14 @@ function loadTable(){
                 document.getElementById("pokedex-number-name").innerHTML = pokemonDict[this.id][0] + ". " + this.id;
 
                 // The current pokemon's base stat for each stat
-                // NEXT STEPS: SET UP FUNCTIONS TO GET EACH STAT!
-                var hp = 50;
-                var attack = 150;
-                var defense = 50;
-                var specialattack = 150;
-                var specialdefense = 50;
-                var speed = 150;
+                let stats = getStats(pokemonDict[this.id][7]);
+                console.log(stats)
+                var hp = stats[0];
+                var attack = stats[1];
+                var defense = stats[2];
+                var specialattack = stats[3];
+                var specialdefense = stats[4];
+                var speed = stats[5];
 
                 // The max base stat for any pokemon
                 const max = 255;
@@ -210,3 +211,15 @@ function assignColour(percentage){
 }
 
 
+function getStats(listOfStats){
+    // This function will take a list made up of the stats along with some additional text and will filter out the unnecessary pieces
+    // of information so that we're left with the numbers
+    let returnList = [];
+
+    listOfStats.forEach(element => {
+        let splitList = element.split(" ");
+        returnList.push(splitList[splitList.length - 1]);
+    })
+
+    return returnList;
+}
