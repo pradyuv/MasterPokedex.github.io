@@ -109,7 +109,7 @@ function loadTable(){
                 document.getElementById("pokedex-number-name").innerHTML = pokemonDict[this.id][0] + ". " + this.id;
 
                 // The current pokemon's base stat for each stat
-                let stats = getStats(pokemonDict[this.id][7]);
+                let stats = getStats(pokemonDict[this.id][8]);
                 console.log(stats)
                 var hp = stats[0];
                 var attack = stats[1];
