@@ -171,7 +171,7 @@ function loadTable(){
 // This function is here so that users can search up specific pokemon. For the time being, you can only search up by pokedex number,
     // but we hope to allow users to search up via the name of the Pokemon.
     function search(){
-        let input = document.getElementById("searchbar").value;
+        let input = document.getElementById("searchbar").value.toLowerCase();
         let pokedex = document.getElementById("pokedexEntries");
 
         for (let i = 0; i < pokedex.rows.length; i++){
