@@ -217,7 +217,7 @@ function getStats(listOfStats){
     let returnList = [];
 
     for (let i = 0; i < listOfStats.length; i++){
-        let splitlist = listOfStats[i].split(" ");
+        let splitList = listOfStats[i].split(" ");
         returnList.push(splitList[splitList.length - 1]);
     }
 
