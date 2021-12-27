@@ -65,8 +65,6 @@ function loadFile(){
                 let pokemonName = individualEntries[2];
                 pokemonNames.push(pokemonName);
             }
-
-            console.log(pokemonNames);
         });
 
     }
