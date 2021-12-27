@@ -178,7 +178,7 @@ function loadTable(){
             let data = pokedex.rows.item(i).cells;
 
             for (let j = 0; j < data.length; j++){
-                if (data[j].innerHTML.includes(input) == false){
+                if (data[j].innerHTML.toLowerCase().includes(input) == false){
                     // If the current cell does not contain the pokedex number the user is searching, its display is set to none, making it invisible
                     data[j].style.display = "none";
                 } else {
