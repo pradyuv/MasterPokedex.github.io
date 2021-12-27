@@ -108,9 +108,47 @@ function loadTable(){
                 // Adding the necessary information to the screen
                 document.getElementById("pokedex-number-name").innerHTML = pokemonDict[this.id][0] + ". " + this.id;
 
-                // Now need to do sprite, description, typing, abilities, evolutionary info, region introduced, height and weight
+                // Setting the sprite for the pokemon
                 let imageSrc = pokemonDict[this.id][5].slice(1, pokemonDict[this.id][5].length - 1);
                 document.getElementById("spriteImage").src = imageSrc;
+
+                // Setting the description for the pokemon
+                document.getElementById("description").innerHTML = pokemonDict[this.id][6];
+
+                // Setting the typing for the pokemon
+                let typing = getTyping(pokemonDict[this.id][1]);
+
+                // Means there is only one type 
+                if (typeof typing === 'string'){
+                    document.getElementById("typing").innerHTML = typing;
+                // Means there are two types
+                } else {
+                    // Will need to edit this later, add IDs and everything to make the typing look a lot nicer
+                    document.getElementById("typing").innerHTML = typing[0] + " " + typing[1];
+                }
+
+                // Using the same function as above as they are formatted the same way in the txt file. Why rebuild the wheel?
+                let abilities = getTyping(pokemonDict[this.id][7]);
+
+                // Means there is only one ability
+                if (typeof typing === 'string'){
+                    document.getElementById("abilities").innerHTML = abilities;
+                // Means there are two or more abilities
+                } else {
+                    // Will need to edit this later, add IDs and everything to make the typing look a lot nicer
+                    document.getElementById("abilities").innerHTML = abilities[0] + " " + abilities[1];
+                }
+
+                // EVOLUTIONARY INFO WILL BE PUT ON PAUSE FOR THE TIME BEING
+
+                // Getting the region it was introduced in
+                let regionIntroduced = getRegion(pokemonDict[this.id][10]);
+                document.getElementById("region-introduced").innerHTML = regionIntroduced;
+
+                // Assigning the height and weight of the pokemon
+                document.getElementById("height").innerHTML = pokemonDict[this.id][3];
+                document.getElementById("weight").innerHTML = pokemonDict[this.id][2];
+
                 // The current pokemon's base stat for each stat
                 let stats = getStats(pokemonDict[this.id][8]);
 
@@ -230,4 +268,23 @@ function getStats(listOfStats){
 
     // Returning a list with all the processed stats 
     return [hp, attack, defense, specialAttack, specialDefense, speed];
+}
+
+// Getting the typing of the pokemon (same method is used to get the abiltiies of the pokemon as they are formatted the same in the txt file)
+function getTyping(typeString){
+    // This means the Pokemon has two types
+    if (typeString.includes(",")){
+        let listOfTypes = typeString.split(",");
+        let firstType = listOfTypes[0].slice(2, listOfTypes[0].length - 1);
+        let secondType = listOfTypes[1].slice(3, listOfTypes[1].length - 2);
+        return [firstType, secondType];
+    } else {
+        return typeString.slice(2, typeString.length - 2);
+    }
+}
+
+// Getting the region the pokemon was introduced in
+function getRegion(regionString){
+    let splitRegionString = regionString.split(", ");
+    return splitRegionString[1].slice(2, splitRegionString[1].length - 2);
 }
