@@ -109,7 +109,8 @@ function loadTable(){
                 document.getElementById("pokedex-number-name").innerHTML = pokemonDict[this.id][0] + ". " + this.id;
 
                 // Now need to do sprite, description, typing, abilities, evolutionary info, region introduced, height and weight
-                let imageSrc = "" + pokemonDict[this.id][5] + "";
+                let imageSrc = pokemonDict[this.id][5];
+                console.log(imageSrc);
                 document.getElementById("spriteImage").src = imageSrc;
                 // The current pokemon's base stat for each stat
                 let stats = getStats(pokemonDict[this.id][8]);
