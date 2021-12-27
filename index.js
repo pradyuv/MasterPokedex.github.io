@@ -106,9 +106,10 @@ function loadTable(){
                 document.getElementById("back").style.display = "block";
 
                 // Adding the necessary information to the screen
-                document.getElementById("pokedex-number-name").innerHTML = pokemonDict[this.id][0] + " " + this.id;
+                document.getElementById("pokedex-number-name").innerHTML = pokemonDict[this.id][0] + ". " + this.id;
 
                 // The current pokemon's base stat for each stat
+                // NEXT STEPS: SET UP FUNCTIONS TO GET EACH STAT!
                 var hp = 50;
                 var attack = 150;
                 var defense = 50;
