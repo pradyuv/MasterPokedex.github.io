@@ -72,6 +72,7 @@ function loadFile(){
 
 // Looping through the table, and adding the table rows and table data elements accordingly
 function loadTable(){
+    // Retrieving the data from the file
     loadFile();
     for (let i = 0; i < rows+1; i++){
         var row = document.createElement("tr");
@@ -104,7 +105,7 @@ function loadTable(){
                 document.getElementById("back").style.display = "block";
 
                 // Adding the necessary information to the screen
-                document.getElementById("pokedex-number-name").innerHTML = this.id + " - POKEMON NAME TO BE DECIDED ONCE FILE HAS BEEN CREATED";
+                document.getElementById("pokedex-number-name").innerHTML = pokemonDict[this.id] + " " + this.id;
 
                 // The current pokemon's base stat for each stat
                 var hp = 50;
@@ -180,7 +181,6 @@ function loadTable(){
                 if (data[j].innerHTML.toLowerCase().includes(input) == false){
                     // If the current cell does not contain the pokedex number the user is searching, its display is set to none, making it invisible
                     data[j].style.display = "none";
-                    console.log(data[j].parentElement.nodeName);
                 } else {
                     // If the current cell does contain the pokedex number, its visibility is set to table-cell, mimicking a <td> element
                     data[j].style.display = "table-cell";
