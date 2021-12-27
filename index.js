@@ -74,6 +74,7 @@ function loadFile(){
 
 // Looping through the table, and adding the table rows and table data elements accordingly
 function loadTable(){
+    loadFile();
     for (let i = 0; i < rows+1; i++){
         var row = document.createElement("tr");
         for (let j = 0; j < 3; j++){
@@ -167,7 +168,6 @@ function loadTable(){
         table.appendChild(row);
     }
 
-    loadFile();
 }
 
 // This function is here so that users can search up specific pokemon. For the time being, you can only search up by pokedex number,
