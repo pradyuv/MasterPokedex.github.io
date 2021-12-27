@@ -214,15 +214,14 @@ function assignColour(percentage){
 function getStats(listOfStats){
     // This function will take a list made up of the stats along with some additional text and will filter out the unnecessary pieces
     // of information so that we're left with the numbers
-    let returnList = [];
-
     let splitList = listOfStats.split(" ");
 
-    for (let i = 0; i < splitList.length; i++){
-        if (i % 2 == 1){
-            returnList.push(splitList[i]);
-        }
-    }
+    let hp = parseInt(splitList[1]);
+    let attack = parseInt(splitList[3]);
+    let defense = parseInt(splitList[5]);
+    let specialAttack = parseInt(splitList[8]);
+    let specialDefense = parseInt(splitList[11]);
+    let speed = parseInt(splitList[13]);
 
-    return returnList;
+    return [hp, attack, defense, specialAttack, specialDefense, speed];
 }
