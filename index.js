@@ -216,10 +216,10 @@ function getStats(listOfStats){
     // of information so that we're left with the numbers
     let returnList = [];
 
-    listOfStats.forEach(element => {
-        let splitList = element.split(" ");
+    for (let i = 0; i < listOfStats.length; i++){
+        let splitlist = listOfStats[i].split(" ");
         returnList.push(splitList[splitList.length - 1]);
-    });
+    }
 
     return returnList;
 }
