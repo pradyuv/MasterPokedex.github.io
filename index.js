@@ -219,7 +219,7 @@ function getStats(listOfStats){
     listOfStats.forEach(element => {
         let splitList = element.split(" ");
         returnList.push(splitList[splitList.length - 1]);
-    })
+    });
 
     return returnList;
 }
