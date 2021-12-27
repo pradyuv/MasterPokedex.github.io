@@ -81,7 +81,6 @@ function loadTable(){
             var button = document.createElement("button");
             var text = document.createTextNode(counter);
             button.id = pokemonNames[counter - 1];
-            console.log(pokemonNames);
             // Setting the on click functionality of the button. If a user clicks a specific button, it is the same as them selecting a
             // specific pokemon to learn more about. Only makes sense for us to display the information the user might be looking for.
             button.onclick = function(){
@@ -181,6 +180,7 @@ function loadTable(){
                 if (data[j].innerHTML.toLowerCase().includes(input) == false){
                     // If the current cell does not contain the pokedex number the user is searching, its display is set to none, making it invisible
                     data[j].style.display = "none";
+                    console.log(data[j].parentElement.nodeName);
                 } else {
                     // If the current cell does contain the pokedex number, its visibility is set to table-cell, mimicking a <td> element
                     data[j].style.display = "table-cell";
