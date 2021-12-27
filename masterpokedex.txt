@@ -4557,7 +4557,7 @@ Castform
 "https://img.pokemondb.net/artwork/castform.jpg"
 CASTFORM’s appearance changes with the weather. This POKéMON gained the ability to use the vast power of nature to protect its tiny body.
 420
-['Forecast', 'Forecast']
+['Forecast']
 ['HP: 70', 'Attack 70', 'Defense 70', 'Special Attack 70', 'Special Defense 70', 'Speed 70']
 (3, 'Hoenn')
 δ
@@ -4934,7 +4934,7 @@ Latias
 "https://img.pokemondb.net/artwork/latias.jpg"
 LATIAS is highly sensitive to the emotions of people. If it senses any hostility, this POKéMON ruffles the feathers all over its body and cries shrilly to intimidate the foe.
 600
-['Levitate', 'Levitate']
+['Levitate']
 ['HP: 80', 'Attack 80', 'Defense 90', 'Special Attack 110', 'Special Defense 130', 'Speed 110']
 (3, 'Hoenn')
 δ
@@ -4947,7 +4947,7 @@ Latios
 "https://img.pokemondb.net/artwork/latios.jpg"
 LATIOS has the ability to make its foe see an image of what it has seen or imagines in its head. This POKéMON is intelligent and understands human speech.
 600
-['Levitate', 'Levitate']
+['Levitate']
 ['HP: 80', 'Attack 90', 'Defense 80', 'Special Attack 130', 'Special Defense 110', 'Speed 110']
 (3, 'Hoenn')
 δ
@@ -5012,7 +5012,7 @@ Deoxys
 "https://img.pokemondb.net/artwork/deoxys-normal.jpg"
 The DNA of a space virus underwent a sudden mutation upon exposure to a laser beam and resulted in DEOXYS. The crystalline organ on this POKéMON’s chest appears to be its brain.
 600
-['Pressure', 'Pressure']
+['Pressure']
 ['HP: 50', 'Attack 150', 'Defense 50', 'Special Attack 150', 'Special Defense 50', 'Speed 150']
 (3, 'Hoenn')
 δ
@@ -6221,7 +6221,7 @@ Rotom
 "https://img.pokemondb.net/artwork/rotom.jpg"
 Its body is composed of plasma. It is known to infiltrate electronic devices and wreak havoc.
 440
-['Levitate', 'Levitate']
+['Levitate']
 ['HP: 50', 'Attack 50', 'Defense 77', 'Special Attack 95', 'Special Defense 77', 'Speed 91']
 (4, 'Sinnoh')
 δ
@@ -8405,7 +8405,7 @@ Keldeo
 "https://img.pokemondb.net/artwork/keldeo-ordinary.jpg"
 By blasting water from its hooves, it can glide across water. It excels at using leg moves while battling.
 580
-['Justified', 'Justified']
+['Justified']
 ['HP: 91', 'Attack 72', 'Defense 90', 'Special Attack 129', 'Special Defense 90', 'Speed 108']
 (5, 'Unova')
 δ
@@ -8418,7 +8418,7 @@ Meloetta
 "https://img.pokemondb.net/artwork/meloetta-aria.jpg"
 Its melodies are sung with a special vocalization method that can control the feelings of those who hear it.
 600
-['Serene Grace', 'Serene Grace']
+['Serene Grace']
 ['HP: 100', 'Attack 77', 'Defense 77', 'Special Attack 128', 'Special Defense 128', 'Speed 90']
 (5, 'Unova')
 δ
@@ -9354,7 +9354,7 @@ Hoopa
 "https://img.pokemondb.net/artwork/hoopa-confined.jpg"
 This troublemaker sends anything and everything to faraway places using its loop, which can warp space.
 600
-['Magician', 'Magician']
+['Magician']
 ['HP: 80', 'Attack 110', 'Defense 60', 'Special Attack 150', 'Special Defense 130', 'Speed 70']
 (6, 'Kalos')
 δ
@@ -9627,7 +9627,7 @@ Oricorio
 "https://img.pokemondb.net/artwork/oricorio-baile.jpg"
 It beats its wings together to create fire. As it moves in the steps of its beautiful dance, it bathes opponents in intense flames.
 476
-['Dancer', 'Dancer']
+['Dancer']
 ['HP: 75', 'Attack 70', 'Defense 70', 'Special Attack 98', 'Special Defense 70', 'Speed 93']
 (7, 'Alola')
 δ
@@ -9692,7 +9692,7 @@ Wishiwashi
 "https://img.pokemondb.net/artwork/wishiwashi-solo.jpg"
 When it’s in trouble, its eyes moisten and begin to shine. The shining light attracts its comrades, and they stand together against their enemies.
 175
-['Schooling', 'Schooling']
+['Schooling']
 ['HP: 45', 'Attack 20', 'Defense 20', 'Special Attack 25', 'Special Defense 25', 'Speed 40']
 (7, 'Alola')
 δ
@@ -10056,7 +10056,7 @@ Minior
 "https://img.pokemondb.net/artwork/minior-meteor.jpg"
 Originally making its home in the ozone layer, it hurtles to the ground when the shell enclosing its body grows too heavy.
 440
-['Shields Down', 'Shields Down']
+['Shields Down']
 ['HP: 60', 'Attack 60', 'Defense 100', 'Special Attack 60', 'Special Defense 100', 'Speed 60']
 (7, 'Alola')
 δ
@@ -10394,7 +10394,7 @@ Necrozma
 "https://img.pokemondb.net/artwork/necrozma.jpg"
 Reminiscent of the Ultra Beasts, this life-form, apparently asleep underground, is thought to have come from another world in ancient times.
 600
-['Prism Armor', 'Prism Armor']
+['Prism Armor']
 ['HP: 97', 'Attack 107', 'Defense 101', 'Special Attack 127', 'Special Defense 89', 'Speed 79']
 (7, 'Alola')
 δ
@@ -10407,7 +10407,7 @@ Magearna
 "https://img.pokemondb.net/artwork/magearna.jpg"
 This artificial Pokémon, constructed more than 500 years ago, can understand human speech but cannot itself speak.
 600
-[]
+["Soul-Heart"]
 ['HP: 80', 'Attack 95', 'Defense 115', 'Special Attack 130', 'Special Defense 115', 'Speed 65']
 (7, 'Alola')
 δ
@@ -11369,7 +11369,7 @@ Eiscue
 "https://img.pokemondb.net/artwork/eiscue-ice.jpg"
 It drifted in on the flow of ocean waters from a frigid place. It keeps its head iced constantly to make sure it stays nice and cold.
 470
-['Ice Face', 'Ice Face']
+['Ice Face']
 ['HP: 75', 'Attack 80', 'Defense 110', 'Special Attack 65', 'Special Defense 90', 'Speed 50']
 (8, 'Galar')
 δ
@@ -11395,7 +11395,7 @@ Morpeko
 "https://img.pokemondb.net/artwork/morpeko-full-belly.jpg"
 As it eats the seeds stored up in its pocket-like pouches, this Pokémon is not just satisfying its constant hunger. It’s also generating electricity.
 436
-['Hunger Switch', 'Hunger Switch']
+['Hunger Switch']
 ['HP: 58', 'Attack 95', 'Defense 58', 'Special Attack 70', 'Special Defense 58', 'Speed 97']
 (8, 'Galar')
 δ
@@ -11538,7 +11538,7 @@ Zacian
 "https://img.pokemondb.net/artwork/zacian-crowned.jpg"
 Now armed with a weapon it used in ancient times, this Pokémon needs only a single strike to fell even Gigantamax Pokémon.
 720
-['Intrepid Sword', 'Intrepid Sword']
+['Intrepid Sword']
 ['HP: 92', 'Attack 170', 'Defense 115', 'Special Attack 80', 'Special Defense 115', 'Speed 148']
 (8, 'Galar')
 δ
@@ -11551,7 +11551,7 @@ Zamazenta
 "https://img.pokemondb.net/artwork/zamazenta-crowned.jpg"
 Its ability to deflect any attack led to it being known as the Fighting Master’s Shield. It was feared and respected by all.
 720
-['Dauntless Shield', 'Dauntless Shield']
+['Dauntless Shield']
 ['HP: 92', 'Attack 130', 'Defense 145', 'Special Attack 80', 'Special Defense 145', 'Speed 128']
 (8, 'Galar')
 δ
@@ -11629,7 +11629,7 @@ Regidrago
 "https://img.pokemondb.net/artwork/regidrago.jpg"
 An academic theory proposes that Regidrago’s arms were once the head of an ancient dragon Pokémon. The theory remains unproven.
 580
-[]
+['Dragon's Maw']
 ['HP: 200', 'Attack 100', 'Defense 50', 'Special Attack 100', 'Special Defense 50', 'Speed 80']
 (8, 'Galar')
 δ
