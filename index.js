@@ -80,7 +80,7 @@ function loadTable(){
             var cell = document.createElement("td");
             // Adding a button with the counter as its inner text to simulate the pokedex entries (will be replaced with image of the sprite)
             var button = document.createElement("button");
-            var text = document.createTextNode(counter);
+            var text = document.createTextNode(pokemonNames[counter - 1]);
             button.id = pokemonNames[counter - 1];
 
             // Setting the on click functionality of the button. If a user clicks a specific button, it is the same as them selecting a
@@ -136,7 +136,7 @@ function loadTable(){
                 // Means there are two or more abilities
                 } else {
                     // Will need to edit this later, add IDs and everything to make the typing look a lot nicer
-                    document.getElementById("abilities").innerHTML = abilities[0] + " " + abilities[1];
+                    document.getElementById("abilities").innerHTML = abilities[0] + ", " + abilities[1];
                 }
 
                 // EVOLUTIONARY INFO WILL BE PUT ON PAUSE FOR THE TIME BEING
