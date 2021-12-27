@@ -131,7 +131,7 @@ function loadTable(){
                 let abilities = getTyping(pokemonDict[this.id][7]);
 
                 // Means there is only one ability
-                if (typeof typing === 'string'){
+                if (typeof abilities === 'string'){
                     document.getElementById("abilities").innerHTML = abilities;
                 // Means there are two or more abilities
                 } else {
@@ -286,5 +286,5 @@ function getTyping(typeString){
 // Getting the region the pokemon was introduced in
 function getRegion(regionString){
     let splitRegionString = regionString.split(", ");
-    return splitRegionString[1].slice(2, splitRegionString[1].length - 2);
+    return splitRegionString[1].slice(1, splitRegionString[1].length - 2);
 }
