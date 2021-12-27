@@ -93,7 +93,7 @@ input{
     border: 2px solid black;
 }
 
-#sprite{
+#sprite, #spriteImage {
     width: 200px;
     height: 200px;
 }
