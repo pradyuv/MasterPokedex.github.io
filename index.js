@@ -276,7 +276,7 @@ function getTyping(typeString){
     if (typeString.includes(",")){
         let listOfTypes = typeString.split(",");
         let firstType = listOfTypes[0].slice(2, listOfTypes[0].length - 1);
-        let secondType = listOfTypes[1].slice(3, listOfTypes[1].length - 2);
+        let secondType = listOfTypes[1].slice(2, listOfTypes[1].length - 2);
         return [firstType, secondType];
     } else {
         return typeString.slice(2, typeString.length - 2);
