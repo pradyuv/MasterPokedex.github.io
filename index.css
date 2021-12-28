@@ -96,7 +96,7 @@ input{
 #sprite, #spriteImage {
     width: 200px;
     height: 200px;
-    background-color: white;
+    background-color: lightcoral;
 }
 
 #label, #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
