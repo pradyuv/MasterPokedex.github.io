@@ -9,7 +9,6 @@ with open('C:\\Users\\meeky\\Desktop\\Website\\Pokedex Web Scraper\\Scripts\\mas
             pokemonList.append(lines[i][:len(lines[i]) - 1])
 
 
-
     for pokemon in pokemonList:
         pc.copy("https://img.pokemondb.net/artwork/" + pokemon.lower() + ".jpg")
         text = pc.paste()
