@@ -109,8 +109,8 @@ function loadTable(){
                 document.getElementById("pokedex-number-name").innerHTML = pokemonDict[this.id][0] + ". " + this.id;
 
                 // Setting the sprite for the pokemon
-                let imageSrc = pokemonDict[this.id][5].slice(1, pokemonDict[this.id][5].length - 1);
-                document.getElementById("spriteImage").src = imageSrc;
+                //let imageSrc = pokemonDict[this.id][5].slice(1, pokemonDict[this.id][5].length - 1);
+                document.getElementById("spriteImage").src = "Images/" + this.id + ".png";
 
                 // Setting the description for the pokemon
                 document.getElementById("description").innerHTML = pokemonDict[this.id][6];
@@ -118,7 +118,7 @@ function loadTable(){
                 // Setting the typing for the pokemon
                 let typing = getTyping(pokemonDict[this.id][1]);
 
-                // Means there is only one type 
+                // Means there is only one type
                 if (typeof typing === 'string'){
                     document.getElementById("typing").innerHTML = typing;
                 // Means there are two types
