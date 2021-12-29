@@ -85,7 +85,7 @@ function loadTable(){
             var spritePokemon = document.createElement("img");
             // Will need to fix the size of specific pokemon's images
             // Could set background colour based on the generation the pokemon was introduced in?
-            spritePokemon.src = pokemonDict[pokemonNames[counter - 1]][11];
+            spritePokemon.src = "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/" + this.id.toLowerCase() + ".png";
             spritePokemon.id = "buttonSprite";
             button.appendChild(spritePokemon);
             button.id = pokemonNames[counter - 1];
