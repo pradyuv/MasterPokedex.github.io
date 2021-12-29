@@ -122,15 +122,21 @@ input{
     height: auto;
 }
 
-#label, #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
+#label, #value-hp, #value-attack #value-defense, #value-special-attack, #value-special-defense, #value-speed,
+#health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
     display: inline-block;
 }
 
 #label{
-    width: 40%;
+    width: 30%;
     text-align: left;
     padding-left: 10px;
 }
+
+#value {
+    width: 10%;
+}
+
 #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
     width: 55%;
 }

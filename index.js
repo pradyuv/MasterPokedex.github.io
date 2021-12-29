@@ -79,21 +79,31 @@ function loadTable(){
     for (let i = 0; i < rows+1; i++){
         var row = document.createElement("tr");
         for (let j = 0; j < 3; j++){
+            // Creating the td element that will contain all the data
             var cell = document.createElement("td");
+
+            // Creating a button that will be added to the td element
             var button = document.createElement("button");
+
+            // Creating the sprite and the pokedex number for the pokemon
             var spritePokemon = document.createElement("img");
             var pokedexNumber = document.createElement("p");
+            // Assigning the id for the pokedex number
             pokedexNumber.id = "banner";
+            // Assigning the inner text for the pokedex number
             pokedexNumber.innerHTML = pokemonDict[pokemonNames[counter - 1]][0];
 
-            // Could set background colour based on the generation the pokemon was introduced in?
+            // Getting the sprite for each pokemon, for some reason Calyrex does not want to work, so we have to create a separate condition for it
             if (counter < 898){
                 spritePokemon.src = "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/" + pokemonNames[counter - 1].toLowerCase() + ".png";
             } else {
                 spritePokemon.src = "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/calyrex.png";
             }
+
+            // Setting the id for the sprite
             spritePokemon.id = "buttonSprite";
 
+            // Adding the pokedex number and sprite to the button
             button.appendChild(pokedexNumber);
             button.appendChild(spritePokemon);
             button.id = pokemonNames[counter - 1];
@@ -190,7 +200,8 @@ function loadTable(){
                 var specialdefensepercentage = (specialdefense / max) * 100 + "%";
                 var speedpercentage = (speed / max) * 100 + "%";
 
-                // Setting the size of the div and colour of the bar accordingly
+                // Setting the size of the div and colour of the bar accordingly, and adding the value for the base stat
+                document.getElementById("value-hp").innerHTML = hp;
                 document.getElementById("health-bar-diagram").style.width = healthpercentage;
                 document.getElementById("health-bar-diagram").style.backgroundColor = hpColour;
 
