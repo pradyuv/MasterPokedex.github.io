@@ -79,7 +79,30 @@ def printingInfo(pokemon):
                         evolutionCondition.append(e.next_sibling.get_text())
                     except AttributeError:
                         evolutionCondition.append(e.previous_sibling.get_text())
+
         evolution = [x for x in evolutionCondition if x is not None]
+        evolutionNameRaw=list(tempSoup.findAll("a",class_="ent-name",limit=len(evolution)+1))
+        if len(evolutionNameRaw)>1:
+            evolutionNames=[l.get_text() for l in evolutionNameRaw]
+        else:
+            evolutionNames=None
+        try:
+            pokeSpriteIcon=str(tempSoup.find("img",class_="img-fixed img-sprite-v18")["src"])
+        except TypeError:
+            try:
+                 pokeSpriteIcon=str(tempSoup.find("img",class_="img-fixed img-sprite-v13")["src"])
+            except TypeError:
+                pokeSpriteIcon=str(tempSoup.find("img",class_="img-fixed img-sprite-v16")["src"])
+        try:
+            evolutionFinal=[evolutionNames[0]]
+        except TypeError:
+            evolutionFinal=["No evolution"]
+        for r in range(len(evolution)):
+            if not evolutionNames:
+                evolutionFinal.clear()
+                evolutionFinal.append("No evolution")
+            else:
+                evolutionFinal.append(f'{evolution[r]} -> '+evolutionNames[r+1])
         thisPokemonType = []
         # Checks if a pokemon has a certain type and appends it to its own list
         for x in range(2):
@@ -185,7 +208,7 @@ def printingInfo(pokemon):
                     possibleAbiltiesRaw[h]=None
                     break
         possibleAbilites=[s for s in possibleAbiltiesRaw if s is not None]
-        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolution,pokemonIconSrc,pokemonDescp,baseStats,possibleAbilites,pokeStats,generationIntro])
+        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolutionFinal,pokemonIconSrc,pokeSpriteIcon,pokemonDescp,baseStats,possibleAbilites,pokeStats,generationIntro])
 
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
     # WE ARE JUST PRINTING FOR THE TIME BEING)
@@ -262,7 +285,7 @@ for i in range(len(pokedex)):
 # Calling the printingInfo function to retrieve the pokedex numbers of each entry
 info = printingInfo(pokemon_names)
 
-with open("masterpokedex.txt.txt",mode="wt",encoding="utf-8") as pseudoDB:
+with open("masterpokedex.txt",mode="wt",encoding="utf-8") as pseudoDB:
     for pokemon in info:
         for element in pokemon:
             pseudoDB.write(str(element))
