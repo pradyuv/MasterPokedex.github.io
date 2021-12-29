@@ -1,11 +1,11 @@
 @font-face {
-    font-family: "Noto Sans";
-    src: url("Fonts/Noto_Sans/NotoSans-Regular.ttf");
+    font-family: "Fira Sans";
+    src: url("Fonts/fira-sans-v11-latin/fira-sans-v11-latin-regular.ttf");
 }
 
 /* Styling the general body elements */
 body{
-    font-family: "Noto Sans";
+    font-family: "Fira Sans";
 }
 
 /* ================================================ GENERAL MENU ===================================== */
@@ -74,7 +74,7 @@ input{
     position: relative;
     top: -10px;
     color: black;
-    font-family: "Noto Sans";
+    font-family: "Fira Sans";
     font-weight: bold;
 }
 
