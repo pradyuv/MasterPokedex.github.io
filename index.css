@@ -128,17 +128,18 @@ input{
 }
 
 #label{
-    width: 20%;
+    width: 30%;
     text-align: left;
     padding-left: 10px;
 }
 
 #value {
-    width: 10%;
+    width: 5%;
+    padding-right: 5px;
 }
 
 #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
-    width: 60%;
+    width: 55%;
 }
 
 #health-bar-diagram, #attack-bar-diagram, #defense-bar-diagram, #special-attack-bar-diagram, #special-defense-bar-diagram, #speed-bar-diagram {
