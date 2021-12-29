@@ -205,18 +205,23 @@ function loadTable(){
                 document.getElementById("health-bar-diagram").style.width = healthpercentage;
                 document.getElementById("health-bar-diagram").style.backgroundColor = hpColour;
 
+                document.getElementById("value-attack").innerHTML = attack;
                 document.getElementById("attack-bar-diagram").style.width = attackpercentage;
                 document.getElementById("attack-bar-diagram").style.backgroundColor = attackColour;
 
+                document.getElementById("value-defense").innerHTML = defense;
                 document.getElementById("defense-bar-diagram").style.width = defensepercentage;
                 document.getElementById("defense-bar-diagram").style.backgroundColor = defenseColour;
 
+                document.getElementById("value-special-attack").innerHTML = specialattack;
                 document.getElementById("special-attack-bar-diagram").style.width = specialattackpercentage;
                 document.getElementById("special-attack-bar-diagram").style.backgroundColor = specialAttackColour;
 
+                document.getElementById("value-special-defense").innerHTML = specialdefense;
                 document.getElementById("special-defense-bar-diagram").style.width = specialdefensepercentage;
                 document.getElementById("special-defense-bar-diagram").style.backgroundColor = specialDefenseColour;
 
+                document.getElementById("value-speed").innerHTML = speed;
                 document.getElementById("speed-bar-diagram").style.width = speedpercentage;
                 document.getElementById("speed-bar-diagram").style.backgroundColor = speedColour;
             };
