@@ -137,7 +137,7 @@ input{
     padding-left: 10px;
 }
 
-#value {
+#value-hp, #value-attack, #value-defense, #value-special-attack, #value-special-defense, #value-speed {
     width: 10px;
     background-color: red;
     padding-right: 10px;
