@@ -80,10 +80,12 @@ function loadTable(){
         var row = document.createElement("tr");
         for (let j = 0; j < 3; j++){
             var cell = document.createElement("td");
-            // Adding a button with the counter as its inner text to simulate the pokedex entries (will be replaced with image of the sprite)
             var button = document.createElement("button");
             var spritePokemon = document.createElement("img");
-            // Will need to fix the size of specific pokemon's images
+            var pokedexNumber = document.createElement("p");
+            pokedexNumber.id = "banner";
+            pokedexNumber.innerHTML = pokemonDict[pokemonNames[counter - 1]][0];
+            
             // Could set background colour based on the generation the pokemon was introduced in?
             if (counter < 898){
                 spritePokemon.src = "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/" + pokemonNames[counter - 1].toLowerCase() + ".png";

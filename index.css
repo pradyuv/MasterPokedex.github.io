@@ -68,6 +68,14 @@ input{
     height: auto;
 }
 
+#banner{
+    text-align: left;
+    padding: 5px 0;
+    position: relative;
+    top: -10px;
+    color: black;
+}
+
 /* ============================================= MENU SPECIFIC TO EACH POKEMON ================================================ */
 #back{
     border: 4px solid white;
