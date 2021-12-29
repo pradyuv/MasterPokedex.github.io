@@ -82,13 +82,11 @@ function loadTable(){
             var cell = document.createElement("td");
             // Adding a button with the counter as its inner text to simulate the pokedex entries (will be replaced with image of the sprite)
             var button = document.createElement("button");
-            var text = document.createTextNode(pokemonNames[counter - 1]);
             var spritePokemon = document.createElement("img");
             spritePokemon.src = pokemonDict[pokemonNames[counter - 1]][11];
             spritePokemon.id = "buttonSprite";
             button.appendChild(spritePokemon);
             button.id = pokemonNames[counter - 1];
-            
 
             // Setting the on click functionality of the button. If a user clicks a specific button, it is the same as them selecting a
             // specific pokemon to learn more about. Only makes sense for us to display the information the user might be looking for.
@@ -205,7 +203,6 @@ function loadTable(){
             };
             // Ensuring that buttons that are more than necessary are not displayed on screen.
             if (counter < 899){
-                button.appendChild(text);
                 cell.appendChild(button);
                 row.appendChild(cell);
             }
