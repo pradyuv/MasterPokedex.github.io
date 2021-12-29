@@ -33,7 +33,7 @@ table{
 /* Editing the buttons that will represent the pokedex entries for each pokemon */
 td button{
     width: 100%;
-    height: 100px;
+    height: 125px;
     border: 4px solid white;
     border-radius: 8px;
 
@@ -74,6 +74,7 @@ input{
     position: relative;
     top: -10px;
     color: black;
+    font-family: "Puny";
 }
 
 /* ============================================= MENU SPECIFIC TO EACH POKEMON ================================================ */
