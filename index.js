@@ -85,7 +85,7 @@ function loadTable(){
             var pokedexNumber = document.createElement("p");
             pokedexNumber.id = "banner";
             pokedexNumber.innerHTML = pokemonDict[pokemonNames[counter - 1]][0];
-            
+
             // Could set background colour based on the generation the pokemon was introduced in?
             if (counter < 898){
                 spritePokemon.src = "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/" + pokemonNames[counter - 1].toLowerCase() + ".png";
@@ -93,6 +93,8 @@ function loadTable(){
                 spritePokemon.src = "https://raw.githubusercontent.com/msikma/pokesprite/master/pokemon-gen8/regular/calyrex.png";
             }
             spritePokemon.id = "buttonSprite";
+
+            button.appendChild(pokedexNumber);
             button.appendChild(spritePokemon);
             button.id = pokemonNames[counter - 1];
 
