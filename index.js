@@ -185,12 +185,12 @@ function loadTable(){
                 // The max base stat for any pokemon
                 const max = 255;
 
-                var hpColour = assignColour((hp / max) * 100);
-                var attackColour = assignColour((attack / max) * 100);
-                var defenseColour = assignColour((defense / max) * 100);
-                var specialAttackColour = assignColour((specialattack / max) * 100);
-                var specialDefenseColour = assignColour((specialdefense / max) * 100);
-                var speedColour = assignColour((speed / max) * 100);
+                var hpColour = assignColour(hp);
+                var attackColour = assignColour(attack);
+                var defenseColour = assignColour(defense);
+                var specialAttackColour = assignColour(specialattack);
+                var specialDefenseColour = assignColour(specialdefense);
+                var speedColour = assignColour(speed);
 
                 // Calculating the percentage of the bar that must be filled in
                 var healthpercentage = (hp / max) * 100 + "%";
@@ -266,15 +266,18 @@ function loadTable(){
 function assignColour(percentage){
     // Returning the colour based on what percentage the stat is relative to the max base stat. Will need to change some of the weightings
     // as the colours don't match up. Using the Pokemondb colours for reference.
-    if (percentage <= 10){
+
+    // stat < 30 -> bad
+    // stat >= 30 and stat < 60 -> mediocre 
+    if (percentage < 30){
         return "rgba(243, 68, 68, 255)";
-    } else if (percentage > 10 && percentage <= 24){
+    } else if (percentage >= 30 && percentage < 60){
         return "rgba(255, 127, 15, 255)";
-    } else if (percentage > 24 && percentage <= 39){
+    } else if (percentage >= 60 && percentage < 90){
         return "rgba(255, 221, 87, 255)";
-    } else if (percentage > 39 && percentage <= 54){
+    } else if (percentage >= 90 && percentage < 120){
         return "rgba(160, 229, 21, 255)";
-    } else if (percentage > 50 && percentage <= 55){
+    } else if (percentage >= 120 && percentage < 150){
         return "rgba(35, 205, 94, 255)";
     } else {
         return "rgba(0, 194, 184, 255)";
