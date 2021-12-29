@@ -224,6 +224,8 @@ function loadTable(){
                 document.getElementById("value-speed").innerHTML = speed;
                 document.getElementById("speed-bar-diagram").style.width = speedpercentage;
                 document.getElementById("speed-bar-diagram").style.backgroundColor = speedColour;
+
+                document.getElementById("value-total").innerHTML = pokemonDict[this.id][9];
             };
             // Ensuring that buttons that are more than necessary are not displayed on screen.
             if (counter < 899){
