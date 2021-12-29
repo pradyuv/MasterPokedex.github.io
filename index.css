@@ -1,11 +1,11 @@
 @font-face {
-    font-family: "Puny";
-    src: url("Fonts/puny-font/Puny-axwzR.ttf");
+    font-family: "Noto Sans";
+    src: url("Fonts/Noto_Sans/NotoSans-Regular.ttf");
 }
 
 /* Styling the general body elements */
 body{
-    font-family: "Puny";
+    font-family: "Noto Sans";
 }
 
 /* ================================================ GENERAL MENU ===================================== */
@@ -74,7 +74,7 @@ input{
     position: relative;
     top: -10px;
     color: black;
-    font-family: "Puny";
+    font-family: "Noto Sans";
 }
 
 /* ============================================= MENU SPECIFIC TO EACH POKEMON ================================================ */
