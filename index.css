@@ -135,7 +135,7 @@ input{
 
 #value {
     width: 5%;
-    padding-right: 5px;
+    padding-right: 10px;
 }
 
 #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
