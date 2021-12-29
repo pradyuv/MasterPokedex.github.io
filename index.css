@@ -133,14 +133,14 @@ input{
 
 #label{
     width: 30%;
-    text-align: left;
+    text-align: right;
     padding-left: 10px;
 }
 
 #value-hp, #value-attack, #value-defense, #value-special-attack, #value-special-defense, #value-speed {
     width: 10px;
     background-color: red;
-    padding-right: 10px;
+    padding-right: 15px;
 }
 
 #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
