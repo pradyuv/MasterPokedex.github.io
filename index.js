@@ -39,13 +39,14 @@ function loadFile(){
                 let height = individualEntries[4];
                 let evolutionaryInfo = individualEntries[5];
                 let imageSrc = individualEntries[6];
-                let description = individualEntries[7];
-                let abilities = individualEntries[9];
-                let baseStats = individualEntries[10];
-                let totalStats = individualEntries[8];
-                let region = individualEntries[11];
+                let description = individualEntries[8];
+                let abilities = individualEntries[10];
+                let baseStats = individualEntries[11];
+                let totalStats = individualEntries[9];
+                let region = individualEntries[12];
+                let pokemonSprite = individualEntries[7];
 
-                pokemonDict[individualEntries[1]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
+                pokemonDict[individualEntries[1]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region, pokemonSprite];
                 let pokemonName = individualEntries[1];
                 pokemonNames.push(pokemonName);
             } else {
@@ -55,13 +56,14 @@ function loadFile(){
                 let height = individualEntries[5];
                 let evolutionaryInfo = individualEntries[6];
                 let imageSrc = individualEntries[7];
-                let description = individualEntries[8];
-                let abilities = individualEntries[10];
-                let baseStats = individualEntries[11];
-                let totalStats = individualEntries[9];
-                let region = individualEntries[12];
+                let description = individualEntries[9];
+                let abilities = individualEntries[11];
+                let baseStats = individualEntries[12];
+                let totalStats = individualEntries[10];
+                let region = individualEntries[13];
+                let pokemonSprite = individualEntries[8];
 
-                pokemonDict[individualEntries[2]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
+                pokemonDict[individualEntries[2]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region, pokemonSprite];
                 let pokemonName = individualEntries[2];
                 pokemonNames.push(pokemonName);
             }
@@ -81,7 +83,11 @@ function loadTable(){
             // Adding a button with the counter as its inner text to simulate the pokedex entries (will be replaced with image of the sprite)
             var button = document.createElement("button");
             var text = document.createTextNode(pokemonNames[counter - 1]);
+            var spritePokemon = document.createElement("img");
+            spritePokemon.src = pokemonDict[pokemonNames[counter - 1]][11];
+            button.appendChild(spritePokemon);
             button.id = pokemonNames[counter - 1];
+            
 
             // Setting the on click functionality of the button. If a user clicks a specific button, it is the same as them selecting a
             // specific pokemon to learn more about. Only makes sense for us to display the information the user might be looking for.
