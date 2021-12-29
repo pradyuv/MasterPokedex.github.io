@@ -122,7 +122,7 @@ input{
     height: auto;
 }
 
-#label, #value-hp, #value-attack #value-defense, #value-special-attack, #value-special-defense, #value-speed,
+#label, #value-hp, #value-attack, #value-defense, #value-special-attack, #value-special-defense, #value-speed,
 #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
     display: inline-block;
 }
