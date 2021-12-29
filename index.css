@@ -75,6 +75,7 @@ input{
     top: -10px;
     color: black;
     font-family: "Noto Sans";
+    font-weight: bold;
 }
 
 /* ============================================= MENU SPECIFIC TO EACH POKEMON ================================================ */
