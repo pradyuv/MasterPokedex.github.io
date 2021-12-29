@@ -83,6 +83,8 @@ function loadTable(){
             // Adding a button with the counter as its inner text to simulate the pokedex entries (will be replaced with image of the sprite)
             var button = document.createElement("button");
             var spritePokemon = document.createElement("img");
+            // Will need to fix the size of specific pokemon's images
+            // Could set background colour based on the generation the pokemon was introduced in?
             spritePokemon.src = pokemonDict[pokemonNames[counter - 1]][11];
             spritePokemon.id = "buttonSprite";
             button.appendChild(spritePokemon);
@@ -143,8 +145,6 @@ function loadTable(){
                     // Will need to edit this later, add IDs and everything to make the typing look a lot nicer
                     document.getElementById("abilities").innerHTML = abilities[0] + ", " + abilities[1];
                 }
-
-                // EVOLUTIONARY INFO WILL BE PUT ON PAUSE FOR THE TIME BEING
 
                 // Getting the region it was introduced in
                 let regionIntroduced = getRegion(pokemonDict[this.id][10]);
@@ -292,3 +292,4 @@ function getRegion(regionString){
     let splitRegionString = regionString.split(", ");
     return splitRegionString[1].slice(1, splitRegionString[1].length - 2);
 }
+

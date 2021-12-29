@@ -97,10 +97,14 @@ input{
     border: 2px solid black;
 }
 
-#sprite, #spriteImage {
+#sprite {
     width: 200px;
     height: 200px;
-    background-color: lightcoral;
+}
+
+#spriteImage {
+    width: 100%;
+    height: auto;
 }
 
 #label, #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar{
