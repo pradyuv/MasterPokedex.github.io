@@ -134,12 +134,11 @@ input{
 #label{
     width: 30%;
     text-align: right;
-    padding-left: 10px;
+    padding-right: 10px;
 }
 
 #value-hp, #value-attack, #value-defense, #value-special-attack, #value-special-defense, #value-speed {
     width: 10px;
-    background-color: red;
     padding-right: 15px;
 }
 
