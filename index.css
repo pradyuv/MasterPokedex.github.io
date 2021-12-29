@@ -127,6 +127,10 @@ input{
     display: inline-block;
 }
 
+#value-total{
+    font-weight: bold;
+}
+
 #label{
     width: 30%;
     text-align: left;
@@ -134,7 +138,8 @@ input{
 }
 
 #value {
-    width: 5%;
+    width: 10px;
+    background-color: red;
     padding-right: 10px;
 }
 
