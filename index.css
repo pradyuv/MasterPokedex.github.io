@@ -58,10 +58,11 @@ input{
     display: block;
 }
 
-#spriteImage{
+#buttonSprite{
     width: 100%;
     height: auto;
 }
+
 /* ============================================= MENU SPECIFIC TO EACH POKEMON ================================================ */
 #back{
     border: 4px solid white;

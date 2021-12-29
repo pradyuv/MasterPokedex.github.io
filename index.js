@@ -85,7 +85,7 @@ function loadTable(){
             var text = document.createTextNode(pokemonNames[counter - 1]);
             var spritePokemon = document.createElement("img");
             spritePokemon.src = pokemonDict[pokemonNames[counter - 1]][11];
-            spritePokemon.id = "spriteImage";
+            spritePokemon.id = "buttonSprite";
             button.appendChild(spritePokemon);
             button.id = pokemonNames[counter - 1];
             
