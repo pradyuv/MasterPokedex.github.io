@@ -1,6 +1,11 @@
+@font-face {
+    font-family: "Puny";
+    src: url("Fonts/puny-font/Puny-axwzR.ttf");
+}
+
 /* Styling the general body elements */
 body{
-    font-family: "Arial";
+    font-family: "Puny";
 }
 
 /* ================================================ GENERAL MENU ===================================== */
