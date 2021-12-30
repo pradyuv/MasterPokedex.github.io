@@ -61,6 +61,7 @@ td button:hover{
 input{
     margin: 0 auto;
     display: block;
+    font-family: "Fira Sans";
 }
 
 #buttonSprite{
