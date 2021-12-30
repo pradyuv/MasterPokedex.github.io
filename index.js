@@ -299,7 +299,7 @@ function getStats(listOfStats){
     let specialDefense = parseInt(splitList[11]);
     let speed = parseInt(splitList[13]);
 
-    // Returning a list with all the processed stats 
+    // Returning a list with all the processed stats
     return [hp, attack, defense, specialAttack, specialDefense, speed];
 }
 

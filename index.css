@@ -73,7 +73,11 @@ input{
     padding: 5px 0;
     position: relative;
     top: -10px;
-    color: black;
+    color: white;
+    text-shadow: -1px 1px 0 black,
+                  1px 1px 0 black,
+                  1px -1px 0 black,
+                  -1px -1px 0 black;
     font-family: "Fira Sans";
     font-weight: bold;
 }
