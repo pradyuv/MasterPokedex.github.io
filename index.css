@@ -126,6 +126,9 @@ input{
 #type1, #type2{
     display: inline-block;
     background-color: red;
+    padding: 4px;
+    border-radius: 4px;
+    margin: 4px;
 }
 
 #typingLabel, #abilitiesLabel, #heightLabel, #weightLabel, #regionLabel, #pokedex-number{
