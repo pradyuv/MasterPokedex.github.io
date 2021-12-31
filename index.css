@@ -143,11 +143,6 @@ input{
     margin: 0;
 }
 
-#region-introduced{
-    background-image: url("Images/Kanto.png");
-    background-position: 50% 50%;
-}
-
 #label, #value-hp, #value-attack, #value-defense, #value-special-attack, #value-special-defense, #value-speed,
 #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar, #value-total {
     display: inline-block;
