@@ -120,7 +120,7 @@ input{
     height: auto;
 }
 
-#typingLabel, #abilitiesLabel, #heightLabel, #weightLabel, #regionLabel, #pokedexNumber{
+#typingLabel, #abilitiesLabel, #heightLabel, #weightLabel, #regionLabel, #pokedex-number{
     text-align: right;
     font-weight: bold;
 }
