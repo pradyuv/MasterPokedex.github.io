@@ -110,10 +110,6 @@ input{
     border-collapse: collapse;
 }
 
-#pokemon-info td, #base-stats td{
-    border: 2px solid black;
-}
-
 #sprite {
     width: 200px;
     height: 200px;
@@ -122,6 +118,11 @@ input{
 #spriteImage {
     width: 100%;
     height: auto;
+}
+
+#typingLabel, #abilitiesLabel, #heightLabel, #weightLabel, #regionLabel{
+    text-align: right;
+    font-weight: bold;
 }
 
 #label, #value-hp, #value-attack, #value-defense, #value-special-attack, #value-special-defense, #value-speed,
