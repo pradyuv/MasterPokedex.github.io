@@ -17,6 +17,28 @@ let pokemonDict = {};
 // A list that contains the name of all Pokemon, this is so that setting the id of each button is easier
 let pokemonNames = [];
 
+// A dictionary that will contain the types and their respective RGBA colours 
+let pokemonColours = {
+    "Normal": "rgba(170,170,153,255)",
+    "Fire": "rgba(255,68,34,255)",
+    "Water": "rgba(51,153,255,255)",
+    "Electric": "rgba(255,204,51,255)",
+    "Grass": "rgba(119,204,85,255)",
+    "Ice": "rgba(102,204,255,255)",
+    "Fighting": "rgba(187,85,68,255)",
+    "Poison": "rgba(170,85,153,255)",
+    "Ground": "rgba(221,187,85,255)",
+    "Flying": "rgba(136,153,255,255)",
+    "Psychic": "rgba(255,85,153,255)",
+    "Bug": "rgba(170,187,34,255)",
+    "Rock": "rgba(187,170,102,255)",
+    "Ghost": "rgba(102,102,187,255)",
+    "Dragon": "rgba(119,102,238,255)",
+    "Dark": "rgba(119,85,68,255)",
+    "Steel": "rgba(170,170,187,255)",
+    "Fairy": "rgba(238,153,238,255)"
+};
+
 function loadFile(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", filePath, false);
@@ -152,21 +174,23 @@ function loadTable(){
 
                 // Means there is only one type
                 if (typeof typing === 'string'){
-                    console.log(typing);
                     let typingElement = document.createElement("p");
                     typingElement.innerHTML = typing;
                     typingElement.id = "type1";
+                    typingElement.style.backgroundColor = pokemonColours[typing];
                     document.getElementById("typing").appendChild(typingElement);
                 // Means there are two types
                 } else {
                     let typingElement1 = document.createElement("p");
                     typingElement1.innerHTML = typing[0];
                     typingElement1.id = "type1";
+                    typingElement1.style.backgroundColor = pokemonColours[typing[0]];
                     document.getElementById("typing").appendChild(typingElement1);
 
                     let typingElement2 = document.createElement("p");
                     typingElement2.innerHTML = typing[1];
                     typingElement2.id = "type2";
+                    typingElement2.style.backgroundColor = pokemonColours[typing[1]];
                     document.getElementById("typing").appendChild(typingElement2);
                 }
 
