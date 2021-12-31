@@ -124,7 +124,12 @@ function loadTable(){
                     document.getElementById("specific_pokemon").style.display = "none";
                     document.getElementById("pokedexEntries").style.display = "table";
                     document.getElementById("searchbar").style.display = "block";
-                    document.getElementById("types").remove();
+                    document.getElementById("type1").remove();
+
+                    // Getting rid of the second type if and only if the pokemon is dual-type
+                    if (typeof typing !== 'string'){
+                        document.getElementById("type2").remove();
+                    }
                 }
 
                 // Adding all the elements to the webpage for the users to see
@@ -149,19 +154,19 @@ function loadTable(){
                 if (typeof typing === 'string'){
                     let typingElement = document.createElement("p");
                     typingElement.innerHTML = typing;
-                    typingElement.id = "types";
+                    typingElement.id = "type1";
                     //document.getElementById("typing").innerHTML = typing;
                     document.getElementById("typing").appendChild(typingElement);
                 // Means there are two types
                 } else {
                     let typingElement1 = document.createElement("p");
                     typingElement1.innerHTML = typing[0];
-                    typingElement1.id = "types";
+                    typingElement1.id = "type1";
                     document.getElementById("typing").appendChild(typingElement1);
 
                     let typingElement2 = document.createElement("p");
                     typingElement2.innerHTML = typing[1];
-                    typingElement2.id = "types";
+                    typingElement2.id = "type2";
                     document.getElementById("typing").appendChild(typingElement2);
                 }
 
