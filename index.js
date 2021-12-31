@@ -124,6 +124,7 @@ function loadTable(){
                     document.getElementById("specific_pokemon").style.display = "none";
                     document.getElementById("pokedexEntries").style.display = "table";
                     document.getElementById("searchbar").style.display = "block";
+                    document.getElementById("types").remove();
                 }
 
                 // Adding all the elements to the webpage for the users to see
@@ -148,6 +149,7 @@ function loadTable(){
                 if (typeof typing === 'string'){
                     let typingElement = document.createElement("p");
                     typingElement.innerHTML = typing;
+                    typingElement.id = "types";
                     //document.getElementById("typing").innerHTML = typing;
                     document.getElementById("typing").appendChild(typingElement);
                 // Means there are two types
