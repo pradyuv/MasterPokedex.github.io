@@ -137,6 +137,10 @@ input{
     font-weight: bold;
 }
 
+#ability1, #ability2{
+    margin: none;
+}
+
 #label, #value-hp, #value-attack, #value-defense, #value-special-attack, #value-special-defense, #value-speed,
 #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar, #value-total {
     display: inline-block;
