@@ -199,11 +199,20 @@ function loadTable(){
 
                 // Means there is only one ability
                 if (typeof abilities === 'string'){
-                    document.getElementById("abilities").innerHTML = abilities;
+                    let abilitiesElement = document.createElement("p");
+                    abilitiesElement.innerHTML = abilities;
+                    document.getElementById("abilities").appendChild(abilitiesElement);
                 // Means there are two or more abilities
                 } else {
                     // Will need to edit this later, add IDs and everything to make the typing look a lot nicer
-                    document.getElementById("abilities").innerHTML = abilities[0] + "\n" + abilities[1];
+                    //document.getElementById("abilities").innerHTML = abilities[0] + "\n" + abilities[1];
+                    let ability1 = document.createElement("p");
+                    ability1.innerHTML = abilities[0];
+                    document.getElementById("abilities").appendChild(ability1);
+
+                    let ability2 = document.createElement("p");
+                    ability2.innerHTML = abilities[1];
+                    document.getElementById("abilities").appendChild(ability2);
                 }
 
                 // Getting the region it was introduced in
