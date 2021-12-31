@@ -131,7 +131,7 @@ function loadTable(){
                 document.getElementById("back").style.display = "block";
 
                 // Adding the necessary information to the screen
-                document.getElementById("pokedex-number-name").innerHTML = "No. " + pokemonDict[this.id][0] + "        " + this.id;
+                document.getElementById("pokedex-number-name").innerHTML = "No. " + pokemonDict[this.id][0] + "&nbsp;&nbsp;&nbsp;&nbsp;" + this.id;
 
                 // Setting the sprite for the pokemon
                 //let imageSrc = pokemonDict[this.id][5].slice(1, pokemonDict[this.id][5].length - 1);
@@ -157,20 +157,20 @@ function loadTable(){
 
                 // Means there is only one ability
                 if (typeof abilities === 'string'){
-                    document.getElementById("abilities").innerHTML = abilities;
+                    document.getElementById("abilities").innerHTML = "ABILITIES: " + abilities;
                 // Means there are two or more abilities
                 } else {
                     // Will need to edit this later, add IDs and everything to make the typing look a lot nicer
-                    document.getElementById("abilities").innerHTML = abilities[0] + ", " + abilities[1];
+                    document.getElementById("abilities").innerHTML = "ABILITIES: " + abilities[0] + ", " + abilities[1];
                 }
 
                 // Getting the region it was introduced in
                 let regionIntroduced = getRegion(pokemonDict[this.id][10]);
-                document.getElementById("region-introduced").innerHTML = regionIntroduced;
+                document.getElementById("region-introduced").innerHTML = "REGION: " + regionIntroduced;
 
                 // Assigning the height and weight of the pokemon
-                document.getElementById("height").innerHTML = pokemonDict[this.id][3];
-                document.getElementById("weight").innerHTML = pokemonDict[this.id][2];
+                document.getElementById("height").innerHTML = "HEIGHT: " + pokemonDict[this.id][3];
+                document.getElementById("weight").innerHTML = "WEIGHT: " + pokemonDict[this.id][2];
 
                 // The current pokemon's base stat for each stat
                 let stats = getStats(pokemonDict[this.id][8]);
