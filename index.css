@@ -145,6 +145,7 @@ input{
 
 #region-introduced{
     background-image: url("Images/Kanto.png");
+    background-position: 50% 50%;
 }
 
 #label, #value-hp, #value-attack, #value-defense, #value-special-attack, #value-special-defense, #value-speed,
