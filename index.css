@@ -123,6 +123,10 @@ input{
 }
 
 /* Setting the colours for the different types */
+#type1, #type2{
+    display: inline-block;
+    background-color: red;
+}
 
 #typingLabel, #abilitiesLabel, #heightLabel, #weightLabel, #regionLabel, #pokedex-number{
     text-align: right;
