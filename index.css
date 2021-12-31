@@ -102,9 +102,6 @@ input{
     display: none;
 }
 
-#pokedex-number-name{
-    text-decoration: underline;
-}
 
 #pokemon-info, #base-stats{
     text-align: center;

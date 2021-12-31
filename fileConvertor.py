@@ -2,10 +2,10 @@ import pyperclip as pc
 
 with open('C:\\Users\\meeky\\Desktop\\Website\\Pokedex Web Scraper\\Scripts\\masterpokedex.txt', encoding="utf8") as f:
     lines = f.readlines()
-    firstGenCounter = 151 * 13
+    firstGenCounter = 252 * 14
     pokemonList = []
     for i in range(len(lines)):
-        if (i - 1) % 13 == 0 and i < firstGenCounter:
+        if (i - 1) % 14 == 0 and i < firstGenCounter:
             pokemonList.append(lines[i][:len(lines[i]) - 1])
 
 

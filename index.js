@@ -131,7 +131,7 @@ function loadTable(){
                 document.getElementById("back").style.display = "block";
 
                 // Adding the necessary information to the screen
-                document.getElementById("pokedex-number-name").innerHTML = pokemonDict[this.id][0] + ". " + this.id;
+                document.getElementById("pokedex-number-name").innerHTML = "No. " + pokemonDict[this.id][0] + "        " + this.id;
 
                 // Setting the sprite for the pokemon
                 //let imageSrc = pokemonDict[this.id][5].slice(1, pokemonDict[this.id][5].length - 1);
