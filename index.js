@@ -147,10 +147,15 @@ function loadTable(){
                     document.getElementById("pokedexEntries").style.display = "table";
                     document.getElementById("searchbar").style.display = "block";
                     document.getElementById("type1").remove();
+                    document.getElementById("ability1").remove();
 
                     // Getting rid of the second type if and only if the pokemon is dual-type
                     if (typeof typing !== 'string'){
                         document.getElementById("type2").remove();
+                    }
+
+                    if (typeof abilities !== 'string'){
+                        document.getElementById("ability2").remove();
                     }
                 }
 
@@ -201,6 +206,7 @@ function loadTable(){
                 if (typeof abilities === 'string'){
                     let abilitiesElement = document.createElement("p");
                     abilitiesElement.innerHTML = abilities;
+                    abilitiesElement.id = "ability1";
                     document.getElementById("abilities").appendChild(abilitiesElement);
                 // Means there are two or more abilities
                 } else {
@@ -208,10 +214,12 @@ function loadTable(){
                     //document.getElementById("abilities").innerHTML = abilities[0] + "\n" + abilities[1];
                     let ability1 = document.createElement("p");
                     ability1.innerHTML = abilities[0];
+                    ability1.id = "ability1"
                     document.getElementById("abilities").appendChild(ability1);
 
                     let ability2 = document.createElement("p");
                     ability2.innerHTML = abilities[1];
+                    ability2.id = "ability2";
                     document.getElementById("abilities").appendChild(ability2);
                 }
 
