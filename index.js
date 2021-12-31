@@ -158,9 +158,9 @@ function loadTable(){
                     typingElement1.innerHTML = typing[0];
                     typingElement1.id = "types";
                     document.getElementById("typing").appendChild(typingElement1);
-                    
+
                     let typingElement2 = document.createElement("p");
-                    typingElement2 = typing[1];
+                    typingElement2.innerHTML = typing[1];
                     typingElement2.id = "types";
                     document.getElementById("typing").appendChild(typingElement2);
                 }
