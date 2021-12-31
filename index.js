@@ -155,16 +155,13 @@ function loadTable(){
                 // Means there are two types
                 } else {
                     let typingElement1 = document.createElement("p");
-                    let typingElement2 = document.createElement("p");
                     typingElement1.innerHTML = typing[0];
-                    typingElement2 = typing[1];
-
                     typingElement1.id = "types";
-                    typingElement2.id = "types";
-
-                    // Will need to edit this later, add IDs and everything to make the typing look a lot nicer
-                    //document.getElementById("typing").innerHTML = typing[0] + " " + typing[1];
                     document.getElementById("typing").appendChild(typingElement1);
+                    
+                    let typingElement2 = document.createElement("p");
+                    typingElement2 = typing[1];
+                    typingElement2.id = "types";
                     document.getElementById("typing").appendChild(typingElement2);
                 }
 
