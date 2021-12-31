@@ -146,7 +146,10 @@ function loadTable(){
 
                 // Means there is only one type
                 if (typeof typing === 'string'){
-                    document.getElementById("typing").innerHTML = typing;
+                    let typingElement = document.createElement("p");
+                    typingElement.innerHTML = typing;
+                    //document.getElementById("typing").innerHTML = typing;
+                    document.getElementById("typing").appendChild(typingElement);
                 // Means there are two types
                 } else {
                     // Will need to edit this later, add IDs and everything to make the typing look a lot nicer

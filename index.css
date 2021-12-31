@@ -64,11 +64,13 @@ input{
     font-family: "Fira Sans";
 }
 
+/* Setting the attributes for the sprite that appears on each button */
 #buttonSprite{
     width: 70px;
     height: auto;
 }
 
+/* The national dex number for each pokemon is located in the top left of the button */
 #banner{
     text-align: left;
     padding: 5px 0;
@@ -119,6 +121,8 @@ input{
     width: 100%;
     height: auto;
 }
+
+/* Setting the colours for the different types */
 
 #typingLabel, #abilitiesLabel, #heightLabel, #weightLabel, #regionLabel, #pokedex-number{
     text-align: right;
