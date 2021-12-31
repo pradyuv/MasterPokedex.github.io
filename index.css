@@ -129,6 +129,7 @@ input{
     padding: 4px;
     border-radius: 4px;
     margin: 4px;
+    text-transform: uppercase;
 }
 
 #typingLabel, #abilitiesLabel, #heightLabel, #weightLabel, #regionLabel, #pokedex-number{
