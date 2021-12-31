@@ -130,6 +130,8 @@ input{
     margin-right: 4px;
     color: white;
     text-transform: uppercase;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 #typingLabel, #abilitiesLabel, #heightLabel, #weightLabel, #regionLabel, #pokedex-number{
