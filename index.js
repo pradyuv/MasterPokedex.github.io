@@ -10,6 +10,9 @@ let counter = 1;
 const filePath = "masterpokedex.txt";
 let fileContents;
 
+// Variable that keeps track of whether or not the pokedex is in its open or closed position
+let open = false;
+
 // Composition of the dictionary will be as follows:
 // "name": [pokedex number, [typing], mass, height, [evolutionary info], img src, description, abilities, [stats], total stats, region]
 let pokemonDict = {};
@@ -17,7 +20,7 @@ let pokemonDict = {};
 // A list that contains the name of all Pokemon, this is so that setting the id of each button is easier
 let pokemonNames = [];
 
-// A dictionary that will contain the types and their respective RGBA colours 
+// A dictionary that will contain the types and their respective RGBA colours
 let pokemonColours = {
     "Normal": "rgba(170,170,153,255)",
     "Fire": "rgba(255,68,34,255)",
@@ -38,6 +41,20 @@ let pokemonColours = {
     "Steel": "rgba(170,170,187,255)",
     "Fairy": "rgba(238,153,238,255)"
 };
+
+function openPokedex(){
+    let topCurtain = document.getElementById("up");
+    let bottomCurtain = document.getElementById("down");
+
+    if (open){
+        bottomCurtain.style.transform = "transformY(0%)";
+        topCurtain.style.transform = "transformY(0%)";
+    } else {
+        topCurtain.style.transform = "transformY(-101%)";
+        bottomCurtain.style.transform = "transformY(101%)";
+    }
+}
+
 
 function loadFile(){
     var xmlhttp = new XMLHttpRequest();
