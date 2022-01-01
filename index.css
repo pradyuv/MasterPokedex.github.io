@@ -14,6 +14,7 @@ body{
     height: 700px;
     overflow: hidden;
     left: 25%;
+    position: relative;
 }
 
 #up, #down{
