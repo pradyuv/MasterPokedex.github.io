@@ -28,6 +28,7 @@ body{
 
 #up{
     z-index: 2;
+    background-image: url("Images/Pokedex\ Top.png");
 }
 
 #open{
