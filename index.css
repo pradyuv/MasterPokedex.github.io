@@ -46,7 +46,7 @@ body{
 /* Styling the pokedex id*/
 #pokedex{
     width: 525px;
-    height: 700px;
+    height: 735px;
     background-color: lightblue;
     margin: 0 auto;
     overflow-y: scroll;
