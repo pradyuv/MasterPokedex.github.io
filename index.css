@@ -30,10 +30,10 @@ body{
 
 #open{
     position: relative;
-    top: 50%;
-    left: 50%;
-    height: 50px;
-    width: 50px;
+    top: 300px;
+    left: 213px;
+    height: 100px;
+    width: 100px;
     border-radius: 50%;
 }
 
