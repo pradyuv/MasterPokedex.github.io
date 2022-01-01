@@ -31,6 +31,10 @@ body{
     background-image: url("Images/Pokedex\ Top.png");
 }
 
+#down{
+    background-image: url("Images/Pokedex\ Bottom.png");
+}
+
 #open{
     position: relative;
     top: 300px;
