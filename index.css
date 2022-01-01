@@ -50,6 +50,7 @@ body{
     overflow-y: scroll;
     border: 2px solid black;
     position: absolute;
+    left: 50%;
 }
 
 /* Styling the paragraph elements on the webpage */
