@@ -13,6 +13,7 @@ body{
     width: 525px;
     height: 700px;
     overflow: hidden;
+    left: 25%;
 }
 
 #up, #down{
@@ -50,7 +51,6 @@ body{
     overflow-y: scroll;
     border: 2px solid black;
     position: absolute;
-    left: 50%;
 }
 
 /* Styling the paragraph elements on the webpage */
