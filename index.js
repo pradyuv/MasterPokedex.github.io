@@ -47,8 +47,8 @@ function openPokedex(){
     let bottomCurtain = document.getElementById("down");
 
     if (open == false){
-        bottomCurtain.style.transform = "transformY(-101%)";
-        topCurtain.style.transform = "transformY(101%)";
+        bottomCurtain.style.transform = "transformY(101%)";
+        topCurtain.style.transform = "transformY(-101%)";
         open = true;
     } else {
         topCurtain.style.transform = "transformY(0%)";
