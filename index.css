@@ -50,7 +50,6 @@ body{
     background-color: lightblue;
     margin: 0 auto;
     overflow-y: scroll;
-    border: 2px solid black;
     position: absolute;
 }
 
