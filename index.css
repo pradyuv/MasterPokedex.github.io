@@ -11,9 +11,9 @@ body{
 /* ================================================ GENERAL MENU ===================================== */
 .container{
     width: 525px;
-    height: 700px;
+    height: 735px;
     overflow: hidden;
-    left: 35%;
+    left: 31%;
     position: relative;
 }
 
