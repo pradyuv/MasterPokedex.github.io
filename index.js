@@ -123,6 +123,10 @@ function loadTable(){
             // Creating the td element that will contain all the data
             var cell = document.createElement("td");
 
+            // Adding left padding only if the cell is the first one in the row
+            if (j == 0){
+                cell.style.paddingLeft = "10px";
+            }
             // Creating a button that will be added to the td element
             var button = document.createElement("button");
 
