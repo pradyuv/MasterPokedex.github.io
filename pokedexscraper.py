@@ -3,6 +3,8 @@ import requests
 import string
 from bs4 import BeautifulSoup
 import re
+import urllib
+import urllib.request
 
 # *********************************************************************************************************************** #
 #                                                     UNOFFICIAL POKEDEX (NAME PENDING)                                   #
@@ -64,7 +66,12 @@ def printingInfo(pokemon):
                     endSrclst.append(j)
                 if len(endSrclst)>=3:
                     break
-            pokemonIconSrc = pokemonIconSrcFinder[startSrc + len("src="):endSrclst[-1] + 1]
+            pokemonIconSrcRaw = pokemonIconSrcFinder[startSrc + len("src="):endSrclst[-1] + 1]
+            pokemonIconSrc=pokemonIconSrcRaw.replace('"','')
+        opener=urllib.request.build_opener()
+        opener.addheaders=[('User-Agent','MyApp/1.0')]
+        urllib.request.install_opener(opener)
+        urllib.request.urlretrieve(pokemonIconSrc,"Images/"+name+".png")
         pokemonDescp=(tempSoup.find("td",class_="cell-med-text")).string
         evolutionCondition = []
         for e in evolutionConditionRaw:
@@ -208,6 +215,7 @@ def printingInfo(pokemon):
                     possibleAbiltiesRaw[h]=None
                     break
         possibleAbilites=[s for s in possibleAbiltiesRaw if s is not None]
+
         pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolutionFinal,pokemonIconSrc,pokeSpriteIcon,pokemonDescp,baseStats,possibleAbilites,pokeStats,generationIntro])
 
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
@@ -284,7 +292,7 @@ for i in range(len(pokedex)):
 
 # Calling the printingInfo function to retrieve the pokedex numbers of each entry
 info = printingInfo(pokemon_names)
-
+'''
 with open("masterpokedex.txt",mode="wt",encoding="utf-8") as pseudoDB:
     for pokemon in info:
         for element in pokemon:
@@ -292,5 +300,5 @@ with open("masterpokedex.txt",mode="wt",encoding="utf-8") as pseudoDB:
             pseudoDB.write("\n")
         pseudoDB.write("δ")
         pseudoDB.write("\n")
-
+'''
 
