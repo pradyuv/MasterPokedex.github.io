@@ -49,9 +49,11 @@ function openPokedex(){
     if (open){
         bottomCurtain.style.transform = "transformY(0%)";
         topCurtain.style.transform = "transformY(0%)";
+        open = false;
     } else {
         topCurtain.style.transform = "transformY(-101%)";
         bottomCurtain.style.transform = "transformY(101%)";
+        open = true;
     }
 }
 
