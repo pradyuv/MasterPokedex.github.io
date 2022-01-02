@@ -3,6 +3,14 @@
     src: url("Fonts/fira-sans-v11-latin/fira-sans-v11-latin-regular.ttf");
 }
 
+/* ===================================================================== NEXT STEPS ============================================================= */
+/* - Make the welcome page look a lot nicer (vertically align the welcome section) 
+   - Add an about us section
+   - Add a "How it works" section
+   - Add a footer with contact info
+   - Add a background image for the website (off white with pokeball outlines?) 
+   - Add a darker, different background for the welcome and who we are sections mayhaps?
+   */
 /* Styling the general body elements */
 body{
     font-family: "Fira Sans";
