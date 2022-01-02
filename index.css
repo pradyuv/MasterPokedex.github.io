@@ -9,11 +9,21 @@ body{
 }
 
 /* ================================================ GENERAL MENU ===================================== */
+.welcome{
+    width: 40%;
+    float: left;
+    background-color: red;
+}
+.main{
+    float: right;
+    width: 60%;
+    background-color: blue;
+}
+
 .container{
     width: 525px;
     height: 735px;
     overflow: hidden;
-    left: 31%;
     position: relative;
 }
 
