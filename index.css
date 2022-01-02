@@ -70,6 +70,7 @@ body{
     margin: 0 auto;
     overflow-y: scroll;
     position: absolute;
+    left: 20%;
 }
 
 /* Styling the paragraph elements on the webpage */
