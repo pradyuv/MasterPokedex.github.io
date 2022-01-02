@@ -193,7 +193,7 @@ function loadTable(){
                 // Setting the sprite for the pokemon
                 //let imageSrc = pokemonDict[this.id][5].slice(1, pokemonDict[this.id][5].length - 1);
                 document.getElementById("spriteImage").src = "Images/" + this.id + ".png";
-
+                spriteImage.style.backgroundColor="rgba(255,255,255,0.5)";
                 // Setting the description for the pokemon
                 document.getElementById("description").innerHTML = pokemonDict[this.id][6];
 
