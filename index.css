@@ -66,7 +66,7 @@ p{
 /* Editing the table that in essence makes up the entire pokedex */
 table{
     width: 100%;
-    background-color: lightblue;
+    background-color: rgba(196,240,248,255);
 }
 
 /* Editing the buttons that will represent the pokedex entries for each pokemon */
