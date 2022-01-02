@@ -42,7 +42,7 @@ body{
     height: 100px;
     width: 100px;
     border-radius: 50%;
-    background-image: url("Images/Pokedex\ Button.png");
+    background-color:rgb(126,208,255);
 }
 
 #open:hover{
