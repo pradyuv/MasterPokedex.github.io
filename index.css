@@ -12,12 +12,17 @@ body{
 .welcome{
     width: 40%;
     float: left;
-    background-color: red;
+    background-color: black;
 }
+
+.welcome h1{
+    color: white;
+}
+
 .main{
     float: right;
     width: 60%;
-    background-color: blue;
+    background-color: white;
 }
 
 .container{
