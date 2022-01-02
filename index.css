@@ -20,8 +20,6 @@ body{
 #up, #down{
     width: 100%;
     height: 50%;
-    /* If this works, will be replaced by a background image*/
-    background-color: orange;
     transition: all 1s ease-out;
     position: relative;
 }
