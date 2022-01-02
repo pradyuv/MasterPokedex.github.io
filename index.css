@@ -52,7 +52,7 @@ body{
 #pokedex{
     width: 525px;
     height: 735px;
-    background-color: lightblue;
+    background-color: rgba(196,240,248,255);
     margin: 0 auto;
     overflow-y: scroll;
     position: absolute;
