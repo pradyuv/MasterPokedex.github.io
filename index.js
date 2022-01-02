@@ -147,7 +147,7 @@ function loadTable(){
 
             // Setting the id for the sprite
             spritePokemon.id = "buttonSprite";
-            buttonSprite.style.backgroundColor="rgba(255,255,255,0.5)";
+            spritePokemon.style.backgroundColor="rgba(255,255,255,0.5)";
 
             // Adding the pokedex number and sprite to the button
             button.appendChild(pokedexNumber);
