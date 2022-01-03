@@ -195,7 +195,6 @@ function loadTable(){
                 document.getElementById("spriteImage").src = "Images/" + this.id + ".png";
                 // Setting the description for the pokemon
                 document.getElementById("description").innerHTML = pokemonDict[this.id][6];
-                document.getElementById("spriteImage").setColorToAlpha=(0,0);
                 // Setting the typing for the pokemon
                 let typing = getTyping(pokemonDict[this.id][1]);
 
