@@ -28,19 +28,23 @@ body{
     margin-top: 67.5px;
 }
 
-.welcome h1{
-    padding-top: 10px;
-    font-size: 144px;
+.welcome h1, .welcome h3, .welcome h5{
     color: white;
 }
 
+.welcome h1{
+    padding-top: 50px;
+    font-size: 72px;
+}
+
 .welcome h3{
-    color: white;
+    font-size: 36px;
 }
 
 .main{
     float: left;
     margin-left: 2%;
+    width: 38%;
 
 }
 
