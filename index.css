@@ -4,11 +4,11 @@
 }
 
 /* ===================================================================== NEXT STEPS ============================================================= */
-/* - Make the welcome page look a lot nicer (vertically align the welcome section) 
+/* - Make the welcome page look a lot nicer (vertically align the welcome section)
    - Add an about us section
    - Add a "How it works" section
    - Add a footer with contact info
-   - Add a background image for the website (off white with pokeball outlines?) 
+   - Add a background image for the website (off white with pokeball outlines?)
    - Add a darker, different background for the welcome and who we are sections mayhaps?
    */
 /* Styling the general body elements */
@@ -18,9 +18,10 @@ body{
 
 /* ================================================ GENERAL MENU ===================================== */
 .welcome{
-    width: 40%;
+    width: 30%;
     float: left;
     background-color: black;
+    margin-left: 10%;
 }
 
 .welcome h1{
