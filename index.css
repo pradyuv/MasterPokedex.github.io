@@ -14,6 +14,7 @@
 /* Styling the general body elements */
 body{
     font-family: "Fira Sans";
+    background-image: url("Images/Website\ Background.png");
 }
 
 /* ================================================ GENERAL MENU ===================================== */
@@ -29,15 +30,19 @@ body{
 
 .welcome h1{
     padding-top: 10px;
+    font-size: 144px;
     color: white;
 }
 
+.welcome h3{
+    color: white;
+}
 
 .main{
     float: left;
     background-color: white;
-    width: 38%;
     margin-left: 2%;
+
 }
 
 .container{
