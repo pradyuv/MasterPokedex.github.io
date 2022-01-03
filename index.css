@@ -4,41 +4,55 @@
 }
 
 /* ===================================================================== NEXT STEPS ============================================================= */
-/* - Make the welcome page look a lot nicer (vertically align the welcome section) 
+/* - Make the welcome page look a lot nicer (vertically align the welcome section)
    - Add an about us section
    - Add a "How it works" section
    - Add a footer with contact info
-   - Add a background image for the website (off white with pokeball outlines?) 
+   - Add a background image for the website (off white with pokeball outlines?)
    - Add a darker, different background for the welcome and who we are sections mayhaps?
    */
 /* Styling the general body elements */
 body{
     font-family: "Fira Sans";
+    background-image: url("Images/Website\ Background.png");
 }
 
 /* ================================================ GENERAL MENU ===================================== */
 .welcome{
-    width: 40%;
+    width: 50%;
     float: left;
     background-color: black;
+    margin-left: 10%;
+    text-align: center;
+    height: 600px;
+    margin-top: 67.5px;
 }
 
-.welcome h1{
+.welcome h1, .welcome h3, .welcome h5{
     color: white;
 }
 
+.welcome h1{
+    padding-top: 50px;
+    font-size: 72px;
+}
+
+.welcome h3{
+    font-size: 36px;
+}
+
 .main{
-    float: right;
-    width: 60%;
-    background-color: white;
+    float: left;
+    margin-left: 2%;
+    width: 38%;
+
 }
 
 .container{
     width: 525px;
-    height: 735px;
+    height: 734px;
     overflow: hidden;
     position: relative;
-    left: 25%;
 }
 
 #up, #down{
@@ -49,12 +63,13 @@ body{
 }
 
 #up{
-    z-index: 2;
+    z-index: 3;
     background-image: url("Images/Pokedex\ Top.png");
 }
 
 #down{
     background-image: url("Images/Pokedex\ Bottom.png");
+    z-index: 2;
 }
 
 #open{
@@ -71,14 +86,25 @@ body{
     background-color: white;
 }
 
+.pokedex-container{
+    height: 720px;
+    background-color: rgba(255,22,22,255);
+    border-radius: 50px;
+    position: absolute;
+    border: 5px solid black;
+}
+
 /* Styling the pokedex id*/
 #pokedex{
-    width: 525px;
-    height: 735px;
+    width: 490px;
+    height: 600px;
     background-color: rgba(196,240,248,255);
     margin: 0 auto;
+    margin-top: 67.5px;
+    margin-left: 10px;
+    margin-right: 10px;
     overflow-y: scroll;
-    position: absolute;
+
 }
 
 /* Styling the paragraph elements on the webpage */
