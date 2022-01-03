@@ -22,6 +22,11 @@ body{
     float: left;
     background-color: black;
     margin-left: 10%;
+    text-align: center;
+}
+
+.welcome h1{
+    padding-top: 10px;
 }
 
 .welcome h1{
