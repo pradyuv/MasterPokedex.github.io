@@ -37,19 +37,29 @@ def printingInfo(pokemon):
         tempurl = "https://pokemondb.net/pokedex/" + name.lower()
         temppage = requests.get(tempurl)
         tempSoup = BeautifulSoup(temppage.content, "html.parser")
-
         # Finding the element that contains the pokedex number for the pokemon. Fortunately for us, the pokedex
         # number is the only <strong> element in the entire webpage
         if name!="Zygarde" and name!="Toxel" and name!="Toxtricity":
-            pokedexNumber = int(tempSoup.find("strong").get_text())
+            pokedexNumber = str(tempSoup.find("strong").get_text())
         elif name == "Zygarde":
-            pokedexNumber=718
+            pokedexNumber=str(718)
         elif name == "Toxel":
-            pokedexNumber=848
+            pokedexNumber=str(848)
         elif name == "Toxtricity":
-            pokedexNumber=849
+            pokedexNumber=str(849)
+        print(pokedexNumber)
+        tempurl2 = "https://www.serebii.net/swordshield/pokemon/"+pokedexNumber+".png"
+        opener = urllib.request.build_opener()
+        opener.addheaders = [('User-Agent', 'MyApp/1.0')]
+        urllib.request.install_opener(opener)
+        urllib.request.urlretrieve(tempurl2, "Images/" + name+".png")
         pokemonType = list(tempSoup.findAll("a", class_="type-icon"))
         evolutionConditionRaw = list((tempSoup.findAll("i", class_="icon-arrow")))
+        opener = urllib.request.build_opener()
+        opener.addheaders = [('User-Agent', 'MyApp/1.0')]
+        urllib.request.install_opener(opener)
+        urllib.request.urlretrieve(tempurl2, "Images/" + name + ".png")
+        '''
         if name!="Pumpkaboo" and name!="Gourgeist":
             pokemonIconSrcFinder = str(list(tempSoup.find("a",{"rel":"lightbox"})))
             startSrc = pokemonIconSrcFinder.index("src=")
@@ -68,10 +78,7 @@ def printingInfo(pokemon):
                     break
             pokemonIconSrcRaw = pokemonIconSrcFinder[startSrc + len("src="):endSrclst[-1] + 1]
             pokemonIconSrc=pokemonIconSrcRaw.replace('"','')
-        opener=urllib.request.build_opener()
-        opener.addheaders=[('User-Agent','MyApp/1.0')]
-        urllib.request.install_opener(opener)
-        urllib.request.urlretrieve(pokemonIconSrc,"Images/"+name+".png")
+        '''
         pokemonDescp=(tempSoup.find("td",class_="cell-med-text")).string
         evolutionCondition = []
         for e in evolutionConditionRaw:
@@ -121,19 +128,19 @@ def printingInfo(pokemon):
         hFinder = tempSoup.find("th", string="Height")
         baseStats=(tempSoup.find("td", class_="cell-total")).string
 
-        if 0<pokedexNumber<=151:
+        if 0<int(pokedexNumber)<=151:
             generationIntro=(1,"Kanto")
-        elif 151<pokedexNumber<=251:
+        elif 151<int(pokedexNumber)<=251:
             generationIntro=(2,"Johto")
-        elif 251<pokedexNumber<=386:
+        elif 251<int(pokedexNumber)<=386:
             generationIntro=(3,"Hoenn")
-        elif 386<pokedexNumber<=493:
+        elif 386<int(pokedexNumber)<=493:
             generationIntro=(4,"Sinnoh")
-        elif 493<pokedexNumber<=649:
+        elif 493<int(pokedexNumber)<=649:
             generationIntro=(5,"Unova")
-        elif 649<pokedexNumber<=721:
+        elif 649<int(pokedexNumber)<=721:
             generationIntro=(6,"Kalos")
-        elif 721<pokedexNumber<=809:
+        elif 721<int(pokedexNumber)<=809:
             generationIntro=(7,"Alola")
         else:
             generationIntro=(8,"Galar")
@@ -216,7 +223,7 @@ def printingInfo(pokemon):
                     break
         possibleAbilites=[s for s in possibleAbiltiesRaw if s is not None]
 
-        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolutionFinal,pokemonIconSrc,pokeSpriteIcon,pokemonDescp,baseStats,possibleAbilites,pokeStats,generationIntro])
+        pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolutionFinal,pokeSpriteIcon,pokemonDescp,baseStats,possibleAbilites,pokeStats,generationIntro])
 
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
     # WE ARE JUST PRINTING FOR THE TIME BEING)
@@ -292,7 +299,7 @@ for i in range(len(pokedex)):
 
 # Calling the printingInfo function to retrieve the pokedex numbers of each entry
 info = printingInfo(pokemon_names)
-'''
+
 with open("masterpokedex.txt",mode="wt",encoding="utf-8") as pseudoDB:
     for pokemon in info:
         for element in pokemon:
@@ -300,5 +307,5 @@ with open("masterpokedex.txt",mode="wt",encoding="utf-8") as pseudoDB:
             pseudoDB.write("\n")
         pseudoDB.write("δ")
         pseudoDB.write("\n")
-'''
+
 
