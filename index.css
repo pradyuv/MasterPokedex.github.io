@@ -36,12 +36,13 @@ body{
 .main{
     float: left;
     background-color: white;
+    width: 38%;
     margin-left: 2%;
 }
 
 .container{
     width: 525px;
-    height: 735px;
+    height: 734px;
     overflow: hidden;
     position: relative;
 }
@@ -54,12 +55,13 @@ body{
 }
 
 #up{
-    z-index: 2;
+    z-index: 3;
     background-image: url("Images/Pokedex\ Top.png");
 }
 
 #down{
     background-image: url("Images/Pokedex\ Bottom.png");
+    z-index: 2;
 }
 
 #open{
@@ -76,15 +78,25 @@ body{
     background-color: white;
 }
 
+.pokedex-container{
+    height: 720px;
+    background-color: rgba(255,22,22,255);
+    border-radius: 50px;
+    position: absolute;
+    border: 5px solid black;
+}
+
 /* Styling the pokedex id*/
 #pokedex{
-    width: 525px;
-    height: 735px;
+    width: 490px;
+    height: 600px;
     background-color: rgba(196,240,248,255);
     margin: 0 auto;
+    margin-top: 67.5px;
+    margin-left: 10px;
+    margin-right: 10px;
     overflow-y: scroll;
-    position: absolute;
-    border-radius: 4px;
+
 }
 
 /* Styling the paragraph elements on the webpage */

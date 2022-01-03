@@ -10,110 +10,112 @@
         </div>
         <div class="main">
             <div class="container">
-                <div id="pokedex">
-                    <br>
-                    <br>
-                    <div id="searchId">
-                        <input id="searchbar" onkeyup="search()" type="text" name="search" placeholder="Enter pokemon here">
-                    </div>
-                    <br>
-                    <br>
-                    <table id="pokedexEntries">
-                    </table>
-                    <div id="specific_pokemon">
-                        <button id="back"><</button>
+                <div class="pokedex-container">
+                    <div id="pokedex">
                         <br>
-                        <table id="pokemon-info">
-                            <tr>
-                                <td rowspan="6" id="sprite"><img id="spriteImage" alt="Image of current Pokemon" src=""></td>
-                                <td id="pokedex-number"></td>
-                                <td id="name"></td>
-                            </tr>
-                            <tr>
-                                <td id="typingLabel">TYPING: </td>
-                                <td id="typing"></td>
-                            </tr>
-                            <tr>
-                                <td id="abilitiesLabel">ABILITIES: </td>
-                                <td id="abilities"></td>
-                            </tr>
-                            <tr>
-                                <td id="heightLabel">HEIGHT: </td>
-                                <td id="height"></td>
-                            </tr>
-                            <tr>
-                                <td id="weightLabel">WEIGHT: </td>
-                                <td id="weight"></td>
-                            </tr>
-                            <tr>
-                                <td id="regionLabel">REGION: </td>
-                                <td id="region-introduced"></td>
-                            </tr>
-                            <tr>
-                                <td>&nbsp;</td>
-                            </tr>
-                            <tr>
-                                <td colspan="3" id="description"></td>
-                            </tr>
+                        <br>
+                        <div id="searchId">
+                            <input id="searchbar" onkeyup="search()" type="text" name="search" placeholder="Enter pokemon here">
+                        </div>
+                        <br>
+                        <br>
+                        <table id="pokedexEntries">
                         </table>
-                        <br>
-                        <div id="hp">
-                            <p id="label">HP</p>
-                            <p id="value-hp"></p>
-                            <div id="health-bar">
-                                <div id="health-bar-diagram">
-                                    <p>&nbsp;</p>
+                        <div id="specific_pokemon">
+                            <button id="back"><</button>
+                            <br>
+                            <table id="pokemon-info">
+                                <tr>
+                                    <td rowspan="6" id="sprite"><img id="spriteImage" alt="Image of current Pokemon" src=""></td>
+                                    <td id="pokedex-number"></td>
+                                    <td id="name"></td>
+                                </tr>
+                                <tr>
+                                    <td id="typingLabel">TYPING: </td>
+                                    <td id="typing"></td>
+                                </tr>
+                                <tr>
+                                    <td id="abilitiesLabel">ABILITIES: </td>
+                                    <td id="abilities"></td>
+                                </tr>
+                                <tr>
+                                    <td id="heightLabel">HEIGHT: </td>
+                                    <td id="height"></td>
+                                </tr>
+                                <tr>
+                                    <td id="weightLabel">WEIGHT: </td>
+                                    <td id="weight"></td>
+                                </tr>
+                                <tr>
+                                    <td id="regionLabel">REGION: </td>
+                                    <td id="region-introduced"></td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3" id="description"></td>
+                                </tr>
+                            </table>
+                            <br>
+                            <div id="hp">
+                                <p id="label">HP</p>
+                                <p id="value-hp"></p>
+                                <div id="health-bar">
+                                    <div id="health-bar-diagram">
+                                        <p>&nbsp;</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="attack">
-                            <p id="label">Attack</p>
-                            <p id="value-attack"></p>
-                            <div id="attack-bar">
-                                <div id="attack-bar-diagram">
-                                    <p>&nbsp;</p>
+                            <div id="attack">
+                                <p id="label">Attack</p>
+                                <p id="value-attack"></p>
+                                <div id="attack-bar">
+                                    <div id="attack-bar-diagram">
+                                        <p>&nbsp;</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="defense">
-                            <p id="label">Defense</p>
-                            <p id="value-defense"></p>
-                            <div id="defense-bar">
-                                <div id="defense-bar-diagram">
-                                    <p>&nbsp;</p>
+                            <div id="defense">
+                                <p id="label">Defense</p>
+                                <p id="value-defense"></p>
+                                <div id="defense-bar">
+                                    <div id="defense-bar-diagram">
+                                        <p>&nbsp;</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="special-attack">
-                            <p id="label">Special Attack</p>
-                            <p id="value-special-attack"></p>
-                            <div id="special-attack-bar">
-                                <div id="special-attack-bar-diagram">
-                                    <p>&nbsp;</p>
+                            <div id="special-attack">
+                                <p id="label">Special Attack</p>
+                                <p id="value-special-attack"></p>
+                                <div id="special-attack-bar">
+                                    <div id="special-attack-bar-diagram">
+                                        <p>&nbsp;</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="special-defense">
-                            <p id="label">Special Defense</p>
-                            <p id="value-special-defense"></p>
-                            <div id="special-defense-bar">
-                                <div id="special-defense-bar-diagram">
-                                    <p>&nbsp;</p>
+                            <div id="special-defense">
+                                <p id="label">Special Defense</p>
+                                <p id="value-special-defense"></p>
+                                <div id="special-defense-bar">
+                                    <div id="special-defense-bar-diagram">
+                                        <p>&nbsp;</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="speed">
-                            <p id="label">Speed</p>
-                            <p id="value-speed"></p>
-                            <div id="speed-bar">
-                                <div id="speed-bar-diagram">
-                                    <p>&nbsp;</p>
+                            <div id="speed">
+                                <p id="label">Speed</p>
+                                <p id="value-speed"></p>
+                                <div id="speed-bar">
+                                    <div id="speed-bar-diagram">
+                                        <p>&nbsp;</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="total">
-                            <p id="label">Total</p>
-                            <p id="value-total"></p>
+                            <div id="total">
+                                <p id="label">Total</p>
+                                <p id="value-total"></p>
+                            </div>
                         </div>
                     </div>
                 </div>
