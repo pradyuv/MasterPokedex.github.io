@@ -18,7 +18,7 @@ body{
 
 /* ================================================ GENERAL MENU ===================================== */
 .welcome{
-    width: 30%;
+    width: 50%;
     float: left;
     background-color: black;
     margin-left: 10%;
@@ -37,7 +37,7 @@ body{
 
 .main{
     float: right;
-    width: 60%;
+    width: 40%;
     background-color: white;
 }
 
@@ -46,7 +46,6 @@ body{
     height: 735px;
     overflow: hidden;
     position: relative;
-    left: 25%;
 }
 
 #up, #down{
