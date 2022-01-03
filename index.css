@@ -23,22 +23,20 @@ body{
     background-color: black;
     margin-left: 10%;
     text-align: center;
-    height: 400px;
-    margin-top: 168px;
+    height: 600px;
+    margin-top: 67.5px;
 }
 
 .welcome h1{
     padding-top: 10px;
-}
-
-.welcome h1{
     color: white;
 }
 
+
 .main{
-    float: right;
-    width: 40%;
+    float: left;
     background-color: white;
+    margin-left: 2%;
 }
 
 .container{
@@ -86,6 +84,7 @@ body{
     margin: 0 auto;
     overflow-y: scroll;
     position: absolute;
+    border-radius: 4px;
 }
 
 /* Styling the paragraph elements on the webpage */
