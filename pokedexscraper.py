@@ -59,26 +59,6 @@ def printingInfo(pokemon):
         opener.addheaders = [('User-Agent', 'MyApp/1.0')]
         urllib.request.install_opener(opener)
         urllib.request.urlretrieve(tempurl2, "Images/" + name + ".png")
-        '''
-        if name!="Pumpkaboo" and name!="Gourgeist":
-            pokemonIconSrcFinder = str(list(tempSoup.find("a",{"rel":"lightbox"})))
-            startSrc = pokemonIconSrcFinder.index("src=")
-        elif name == 'Pumpkaboo':
-            pokemonIconSrcFinder = '"https://img.pokemondb.net/artwork/pumpkaboo.jpg"'
-            startSrc=None
-        else:
-            pokemonIconSrcFinder = '"https://img.pokemondb.net/artwork/gourgeist.jpg"'
-            startSrc=None
-        endSrclst=[]
-        if startSrc is not None:
-            for j in range(len(pokemonIconSrcFinder)-1,0,-1):
-                if pokemonIconSrcFinder[j]=='"':
-                    endSrclst.append(j)
-                if len(endSrclst)>=3:
-                    break
-            pokemonIconSrcRaw = pokemonIconSrcFinder[startSrc + len("src="):endSrclst[-1] + 1]
-            pokemonIconSrc=pokemonIconSrcRaw.replace('"','')
-        '''
         pokemonDescp=(tempSoup.find("td",class_="cell-med-text")).string
         evolutionCondition = []
         for e in evolutionConditionRaw:
