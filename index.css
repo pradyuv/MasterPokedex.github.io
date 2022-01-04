@@ -28,14 +28,24 @@ body{
 #navigation td{
     text-align: center;
     width: 40px;
+    text-align: center;
+
 }
 
 #welcome-navigation-caption, #intro-navigation-caption, #how-it-works-navigation-caption, #footer-navigation-caption{
     display: none;
     padding-left: 10px;
     padding-right: 10px;
+    
 }
 
+#welcome-navigation img, #intro-nav img, #how-it-works-nav img, #footer-nav img{
+    transition: transform .2s ease-in-out;
+}
+
+#welcome-navigation img:hover, #intro-nav img:hover, #how-it-works-nav img:hover, #footer-nav img:hover{
+    transform: rotate(360deg);
+}
 
 /* ================================================ GENERAL MENU ===================================== */
 .welcome{
@@ -197,13 +207,15 @@ input{
 }
 
 /* ============================================= WHO WE ARE SECTION ============================================================*/
-#introductions{
+#introductions, #bts, #footer {
     width: 100%;
     background-color: red;
     text-align: center;
     margin: 100px 0;
     height: 450px;
 }
+
+
 /* ============================================= MENU SPECIFIC TO EACH POKEMON ================================================ */
 #back{
     border: 4px solid white;
