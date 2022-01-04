@@ -42,6 +42,17 @@ let pokemonColours = {
     "Fairy": "rgba(238,153,238,255)"
 };
 
+
+let welcomeNav = document.getElementById("welcome-navigation");
+
+welcomeNav.addEventListener("mouseover", function(event){
+    document.getElementById("welcome-navigation-caption").style.display = "table-cell";
+})
+
+welcomeNav.addEventListener("mouseleave", function(event){
+    document.getElementById("welcome-navigation-caption").style.display = "none";
+})
+
 function openPokedex(){
     let topCurtain = document.getElementById("up");
     let bottomCurtain = document.getElementById("down");
@@ -80,14 +91,13 @@ function loadFile(){
                 let height = individualEntries[4];
                 let evolutionaryInfo = individualEntries[5];
                 let imageSrc = individualEntries[6];
-                let description = individualEntries[8];
-                let abilities = individualEntries[10];
-                let baseStats = individualEntries[11];
-                let totalStats = individualEntries[9];
-                let region = individualEntries[12];
-                let pokemonSprite = individualEntries[7];
+                let description = individualEntries[7];
+                let abilities = individualEntries[9];
+                let baseStats = individualEntries[10];
+                let totalStats = individualEntries[8];
+                let region = individualEntries[11];
 
-                pokemonDict[individualEntries[1]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region, pokemonSprite];
+                pokemonDict[individualEntries[1]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
                 let pokemonName = individualEntries[1];
                 pokemonNames.push(pokemonName);
             } else {
@@ -97,14 +107,13 @@ function loadFile(){
                 let height = individualEntries[5];
                 let evolutionaryInfo = individualEntries[6];
                 let imageSrc = individualEntries[7];
-                let description = individualEntries[9];
-                let abilities = individualEntries[11];
-                let baseStats = individualEntries[12];
-                let totalStats = individualEntries[10];
-                let region = individualEntries[13];
-                let pokemonSprite = individualEntries[8];
+                let description = individualEntries[8];
+                let abilities = individualEntries[10];
+                let baseStats = individualEntries[11];
+                let totalStats = individualEntries[9];
+                let region = individualEntries[12];
 
-                pokemonDict[individualEntries[2]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region, pokemonSprite];
+                pokemonDict[individualEntries[2]] = [pokedexNumber, typing, weight, height, evolutionaryInfo, imageSrc, description, abilities, baseStats, totalStats, region];
                 let pokemonName = individualEntries[2];
                 pokemonNames.push(pokemonName);
             }
