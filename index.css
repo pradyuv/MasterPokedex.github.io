@@ -1,16 +1,17 @@
+/* Initializing the font that will be used for the website */
 @font-face {
     font-family: "Fira Sans";
     src: url("Fonts/fira-sans-v11-latin/fira-sans-v11-latin-regular.ttf");
 }
 
 /* ===================================================================== NEXT STEPS ============================================================= */
-/* - Make the welcome page look a lot nicer (vertically align the welcome section)
+/*
    - Add an about us section
    - Add a "How it works" section
    - Add a footer with contact info
-   - Add a background image for the website (off white with pokeball outlines?)
    - Add a darker, different background for the welcome and who we are sections mayhaps?
    */
+
 /* Styling the general body elements */
 body{
     font-family: "Fira Sans";
@@ -18,6 +19,7 @@ body{
 }
 
 
+/* Working on the navigation elements */
 #navigation{
     position: fixed;
     width: 1%;
@@ -25,6 +27,7 @@ body{
     margin-top: 1%;
 }
 
+/* Setting some styles for the td elements in the nav table */
 #navigation td{
     text-align: center;
     width: 40px;
@@ -32,13 +35,15 @@ body{
 
 }
 
+/* Setting the captions to hidden initially */
 #welcome-navigation-caption, #intro-navigation-caption, #how-it-works-navigation-caption, #footer-navigation-caption{
     display: none;
     padding-left: 10px;
     padding-right: 10px;
-    
+
 }
 
+/* Adding an animation here, when the pokeball is hovered, it does a 360 degree spin, might change it to 180 depending on what looks better */
 #welcome-navigation img, #intro-nav img, #how-it-works-nav img, #footer-nav img{
     transition: transform .2s ease-in-out;
 }
@@ -48,6 +53,8 @@ body{
 }
 
 /* ================================================ GENERAL MENU ===================================== */
+
+/* A quick welcome section for the user when they load the webpage */
 .welcome{
     width: 50%;
     float: left;
@@ -73,6 +80,7 @@ body{
     font-size: 36px;
 }
 
+/* Main consists of the main components of the website, the pokedex */
 .main{
     margin-left: 2%;
     width: 38%;
@@ -87,6 +95,7 @@ body{
     position: relative;
 }
 
+/* Styling the covers for the pokedex */
 #up, #down{
     width: 100%;
     height: 50%;
@@ -118,6 +127,7 @@ body{
     background-color: white;
 }
 
+/* Adding a wrapper for the pokedex to make the appearance consistent with the case */
 .pokedex-container{
     height: 720px;
     background-color: rgba(255,22,22,255);
@@ -159,6 +169,7 @@ td button{
 
 }
 
+/* Setting the on-hover colour for the buttons that represents the pokemon*/
 td button:hover{
     background-color: rgba(211, 211, 211, 0.5);
 }
@@ -253,7 +264,7 @@ input{
     height: auto;
 }
 
-/* Setting the colours for the different types */
+/* Setting the styling for the typing */
 #type1, #type2{
     display: inline-block;
     padding: 4px;
@@ -265,15 +276,18 @@ input{
     margin-bottom: 0;
 }
 
+/* Setting the styling for the labels on the page */
 #typingLabel, #abilitiesLabel, #heightLabel, #weightLabel, #regionLabel, #pokedex-number{
     text-align: right;
     font-weight: bold;
 }
 
+/* Setting the styling for the abilities */
 #ability1, #ability2{
     margin: 0;
 }
 
+/* Setting the styling for everything related to the base stats/base stat total*/
 #label, #value-hp, #value-attack, #value-defense, #value-special-attack, #value-special-defense, #value-speed,
 #health-bar, #attack-bar, #defense-bar, #special-attack-bar, #special-defense-bar, #speed-bar, #value-total {
     display: inline-block;

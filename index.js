@@ -42,7 +42,8 @@ let pokemonColours = {
     "Fairy": "rgba(238,153,238,255)"
 };
 
-
+// Creating the :hover functionality using javascript becuase I could not figure out how to use the "+" operator in CSS
+// Fades the caption in and out when the pokeball is hovered over
 let welcomeNav = document.getElementById("welcome-navigation");
 let introNav = document.getElementById("intro-nav");
 let btsNav = document.getElementById("how-it-works-nav");
@@ -80,7 +81,7 @@ footerNav.addEventListener("mouseleave", function(event){
     document.getElementById("footer-navigation-caption").style.display = "none";
 })
 
-
+// Creating an animation to make it appear as though the pokedex opens and closes at the click of the central button
 function openPokedex(){
     let topCurtain = document.getElementById("up");
     let bottomCurtain = document.getElementById("down");
@@ -96,7 +97,7 @@ function openPokedex(){
     }
 }
 
-
+// This function gathers the data from the txt file when the webpage loads to ensure that the information is readily available
 function loadFile(){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.open("GET", filePath, false);
