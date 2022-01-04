@@ -5,6 +5,35 @@
         <link href="index.css" rel="stylesheet">
     </head>
     <body onload="loadTable()">
+        <!--This will become the navbar or sm-->
+        <!--Will have to check what div is currently in the viewport at any given moment -->
+        <table id="navigation">
+            <tr>
+                <td id="welcome-navigation"><img src="Images/Pokeball.png" alt="welcome"></td>
+                <td id="welcome-navigation-caption">Welcome</td>
+            </tr>
+            <tr>
+                <td id ="separator">|</td>
+            </tr>
+            <tr>
+                <td id="intro-nav"><img src="Images/Pokeball.png" alt="Introduction"></td>
+                <td id="intro-navigation-caption">Intros</td>
+            </tr>
+            <tr>
+                <td id="separator">|</td>
+            </tr>
+            <tr>
+                <td id="how-it-works-nav"><img src="Images/Pokeball.png" alt="How It Works"></td>
+                <td id="how-it-works-navigation-caption">BTS</td>
+            </tr>
+            <tr>
+                <td id="separator">|</td>
+            </tr>
+            <tr>
+                <td id="footer-nav"><img src="Images/Pokeball.png" alt="Footer"></td>
+                <td id="footer-navigation-caption">More Info</td>
+            </tr>
+        </table>
         <div class="welcome">
             <h3>WELCOME</h3>
             <h1>To the Unofficial Official Pokedex</h1>
@@ -129,6 +158,15 @@
             </div>
         </div>
         <!-- Any future elements will show up beneath the main portion of the website -->
+        <div id="introductions">
+            <h1>WHO WE ARE</h1>
+        </div>
+        <div id="bts">
+            <h1>HOW IT WORKS</h1>
+        </div>
+        <div id="footer">
+            <p>You can contact us at</p>
+        </div>
     </body>
     <script src="index.js"></script>
 </html>

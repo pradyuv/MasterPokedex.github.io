@@ -44,14 +44,42 @@ let pokemonColours = {
 
 
 let welcomeNav = document.getElementById("welcome-navigation");
+let introNav = document.getElementById("intro-nav");
+let btsNav = document.getElementById("how-it-works-nav");
+let footerNav = document.getElementById("footer-nav");
 
 welcomeNav.addEventListener("mouseover", function(event){
     document.getElementById("welcome-navigation-caption").style.display = "table-cell";
+});
+
+introNav.addEventListener("mouseover", function(event){
+    document.getElementById("intro-navigation-caption").style.display = "table-cell";
+});
+
+btsNav.addEventListener("mouseover", function(event){
+    document.getElementById("how-it-works-navigation-caption").style.display = "table-cell";
+})
+
+footerNav.addEventListener("mouseover", function(event){
+    document.getElementById("footer-navigation-caption").style.display = "table-cell";
 })
 
 welcomeNav.addEventListener("mouseleave", function(event){
     document.getElementById("welcome-navigation-caption").style.display = "none";
+});
+
+introNav.addEventListener("mouseleave", function(event){
+    document.getElementById("intro-navigation-caption").style.display = "none";
 })
+
+btsNav.addEventListener("mouseleave", function(event){
+    document.getElementById("how-it-works-navigation-caption").style.display = "none";
+})
+
+footerNav.addEventListener("mouseleave", function(event){
+    document.getElementById("footer-navigation-caption").style.display = "none";
+})
+
 
 function openPokedex(){
     let topCurtain = document.getElementById("up");
