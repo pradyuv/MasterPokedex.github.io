@@ -27,7 +27,16 @@ body{
     background-image: url("Images/Website\ Background.png");
 }
 
+::-webkit-scrollbar{
+    width: 10px;
+}
+::-webkit-scrollbar-track{
+    background: lightblue;
+}
 
+::-webkit-scrollbar-thumb{
+    background: lightgray;
+}
 /* Working on the navigation elements */
 #navigation{
     position: fixed;
@@ -157,7 +166,7 @@ body{
     margin-top: 67.5px;
     margin-left: 10px;
     margin-right: 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
 
 }
 
@@ -361,6 +370,7 @@ input{
     width: 30%;
     text-align: right;
     padding-right: 20px;
+    padding-bottom: 15px;
 }
 
 #value-hp, #value-attack, #value-defense, #value-special-attack, #value-special-defense, #value-speed {
