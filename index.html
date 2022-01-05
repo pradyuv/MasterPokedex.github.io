@@ -164,14 +164,27 @@
                 <a href="https://www.linkedin.com/in/meekyle-mondal/" target="_blank">This</a> is my LinkedIn,
                 and you can find some more projects that I've worked on <a href="https://github.com/amond049" target="_blank">here</a>.
             </p>
-            <!-- YOU CAN PUT YOUR INTRODUCTION HERE, PRADYU -->
+            <p>Hi! My name is Pradyu Vasudev and I am also a software engineering student at the University of Ottawa. I love problem solving in general and coding offers me
+                yet another way to solve problems. I love doing projects that interest me such as this Pokedex project, since Pokemon was always near and dear to my heart, I combined
+                it with my desire to make a side project with coding. Currently, I enjoy doing back-end operations on a website and writing the base off of which a website functions.
+                I don't mind working on the front-end, however using Python to web scrape on this project was really fun and a great experience. I am eager to learn more back-end technologies,
+                such as Django and databases like MySQL. <a href="https://www.linkedin.com/in/pradyu-vasudev/" target="_blank">This</a> is my LinkedIn, and projects will also be posted <a href="https://github.com/pradyuv?tab=repositories">here</a> on my Github page.
+            </p>
         </div>
         <div id="bts">
             <h1>HOW IT WORKS</h1>
             <p>Before we discuss how it was all possible, we would first like to distinguish that Pradyu took on all the backend
-                functionalities, and Meekyle focused on the front-end application.
+                functionalities, and Meekyle focused on the front-end application. This was a really fun project to work on together!
             </p>
-            <!-- YOU CAN PUT YOUR INFO IN HERE PRADYU -->
+            <p>Writing the web scraper was hard at first, but once I read the documentation and played around with it a little, it was very fun to work with.
+            We start off with the method that loops through each Pokemon name which is grabbed in the main, and all the code in the method runs off that name, since it accesses
+            that Pokemon's webpage. Tempsoup was the name given to each parsed webpage, and using the module imported from BeautifulSoup, it was just a matter of using various
+            methods to find what was wanted on that page. Along with some logic, the raw HTML data was selected and filtered to provide what was desired. The url opening to download the pokemon images at first
+            was blocked since the website thought it was a bot "mass" accessing the links. So I used a trick of some sorts, opening the url as a browser instead of the python urllib. StackOverflow helped me understand the problem
+            and offered me a way to fix the problem. After deliberation, Meekyle and I decided we did not want to implement the evolutionary info onto the pokedex entries, however, I left the logic up in the code so that you may
+            look at it and see how I went grabbing the evolution names as well as the conditions. That .txt is appended in the main code from the information obtained from the list appended through the method. The end results are present in the .txt file, which we used as a pseudo database.
+                Now, Meekyle will explain how he went about designing the front end.</p>
+
             <p>After having gotten the information from the web scraper and writing it all to a txt file (which we considered a
                 pseudo-database for the website), it was a matter of writing JS code to get the text from the file. This is where the XMLHTTP
                 Request came into play, but by no means was it trivial to implement. XMLHTTP Requests only work for valid web servers, and

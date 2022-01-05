@@ -39,6 +39,9 @@ def printingInfo(pokemon):
         tempSoup = BeautifulSoup(temppage.content, "html.parser")
         # Finding the element that contains the pokedex number for the pokemon. Fortunately for us, the pokedex
         # number is the only <strong> element in the entire webpage
+        #These Pokemon are special cases for the Pokedex number scraping, hence the elif
+        #String type was forced here to make the number triple digits to have the correct number
+        #A dictionary could have worked here but there were conditionals here, I felt if/else could have worked better
         if name!="Zygarde" and name!="Toxel" and name!="Toxtricity":
             pokedexNumber = str(tempSoup.find("strong").get_text())
         elif name == "Zygarde":
@@ -47,19 +50,23 @@ def printingInfo(pokemon):
             pokedexNumber=str(848)
         elif name == "Toxtricity":
             pokedexNumber=str(849)
-        print(pokedexNumber)
+        #This snippet of urllib opens the page as a valid user (to block bot protection) using the
+        #loop nature of the method and the different pokedex number each time to access the corresponding
+        #png, and saves it to the local folder as a transparent png
         tempurl2 = "https://www.serebii.net/swordshield/pokemon/"+pokedexNumber+".png"
         opener = urllib.request.build_opener()
         opener.addheaders = [('User-Agent', 'MyApp/1.0')]
         urllib.request.install_opener(opener)
         urllib.request.urlretrieve(tempurl2, "Images/" + name+".png")
+        #types on the website have the same class, easy to cast to a list
         pokemonType = list(tempSoup.findAll("a", class_="type-icon"))
+        #this grabs all the elements with class "icon-arrow", which has the evolution conditions
         evolutionConditionRaw = list((tempSoup.findAll("i", class_="icon-arrow")))
-        opener = urllib.request.build_opener()
-        opener.addheaders = [('User-Agent', 'MyApp/1.0')]
-        urllib.request.install_opener(opener)
-        urllib.request.urlretrieve(tempurl2, "Images/" + name + ".png")
+        #grabs the first pokemon description on the page, it will use the description of the pokedex of the region
+        #that pokemon started in
         pokemonDescp=(tempSoup.find("td",class_="cell-med-text")).string
+        #this whole loop and list comprhension filters out the evolution conditions and grabs
+        #the correct ones
         evolutionCondition = []
         for e in evolutionConditionRaw:
             if name == "Nincada" or name == "Ninjask" or name == "Shedinja":
@@ -75,11 +82,15 @@ def printingInfo(pokemon):
                         evolutionCondition.append(e.previous_sibling.get_text())
 
         evolution = [x for x in evolutionCondition if x is not None]
+        #ent-name class has multiple elements, I figured that only the first number of evolution conditions plus one
+        #would contain the evolution names
         evolutionNameRaw=list(tempSoup.findAll("a",class_="ent-name",limit=len(evolution)+1))
         if len(evolutionNameRaw)>1:
             evolutionNames=[l.get_text() for l in evolutionNameRaw]
         else:
             evolutionNames=None
+        #grabs the poke sprite icon for showing on the pokedex home, some sprites aren't available hence the error
+        #catching
         try:
             pokeSpriteIcon=str(tempSoup.find("img",class_="img-fixed img-sprite-v18")["src"])
         except TypeError:
@@ -87,6 +98,7 @@ def printingInfo(pokemon):
                  pokeSpriteIcon=str(tempSoup.find("img",class_="img-fixed img-sprite-v13")["src"])
             except TypeError:
                 pokeSpriteIcon=str(tempSoup.find("img",class_="img-fixed img-sprite-v16")["src"])
+        #compiles evolution names as well as conditions
         try:
             evolutionFinal=[evolutionNames[0]]
         except TypeError:
@@ -97,6 +109,10 @@ def printingInfo(pokemon):
                 evolutionFinal.append("No evolution")
             else:
                 evolutionFinal.append(f'{evolution[r]} -> '+evolutionNames[r+1])
+        '''
+        AFTER MUCH DELIBERATION, EVOLUTION ON THE POKEMON WAS NOT IMPLEMENTED ON THE POKEDEX AS OF JANUARY 5TH 2022.
+        Still, I was proud of my way to grab the correct evolution info with a list, as referenced in the masterpokedex.txt file.
+        '''
         thisPokemonType = []
         # Checks if a pokemon has a certain type and appends it to its own list
         for x in range(2):
@@ -104,10 +120,11 @@ def printingInfo(pokemon):
                 for typeCheck in allTypes:
                     if typeCheck in pokemonType[x]:
                         thisPokemonType.append(typeCheck)
+        #Grabs raw html info such as weight, height and base stats
         wFinder = tempSoup.find("th", string="Weight")
         hFinder = tempSoup.find("th", string="Height")
         baseStats=(tempSoup.find("td", class_="cell-total")).string
-
+        #a dictionary is used for specific key/value pairs, using it for ranges won't be straighforward
         if 0<int(pokedexNumber)<=151:
             generationIntro=(1,"Kanto")
         elif 151<int(pokedexNumber)<=251:
@@ -124,85 +141,128 @@ def printingInfo(pokemon):
             generationIntro=(7,"Alola")
         else:
             generationIntro=(8,"Galar")
-        normalAbilitiesList=list(tempSoup.findAll("span",class_="text-muted",limit=3))
+        #a pokemon will have at most 3 normal abilties and one mega ability (hidden abiliies not included)
+        #not the clearest method of obtaining these abilities, but catches all possible errors
+        #this method parses the string for the < and > tags and isolates the abilities
+        normalAbilitiesList=list(tempSoup.findAll("span",class_="text-muted",limit=3)) #raw html
         try:
             normalAbilityOneRaw=str(normalAbilitiesList[0])
             normalAbilityTwoRaw=str(normalAbilitiesList[1])
+        #x and y are counters for the < and > tags, the variable names for opening and closing should be straighforward
         except IndexError:
+
             x = 0
             y = 0
             openingBraceAbilityOne = 0
             closingBraceAbilityOne = 0
+
             for m in range(len(normalAbilityOneRaw)):
+
                 if normalAbilityOneRaw[m] == ">":
                     x += 1
                 if x == 2:
                     openingBraceAbilityOne = m
                     break
+
             for k in range(len(normalAbilityOneRaw)):
+
                 if normalAbilityOneRaw[k] == "<":
                     y += 1
                 if y == 3:
                     closingBraceAbilityOne = k
                     break
+
             normalAbilityOne = normalAbilityOneRaw[openingBraceAbilityOne + 1:closingBraceAbilityOne]
             normalAbilityTwo=''
+
         else:
+
             x = 0
             y = 0
             openingBraceAbilityOne = 0
             closingBraceAbilityOne = 0
+
             for m in range(len(normalAbilityOneRaw)):
+
                 if normalAbilityOneRaw[m] == ">":
                     x += 1
                 if x == 2:
                     openingBraceAbilityOne = m
                     break
+
             for k in range(len(normalAbilityOneRaw)):
+
                 if normalAbilityOneRaw[k] == "<":
                     y += 1
                 if y == 3:
                     closingBraceAbilityOne = k
                     break
+
             x = 0
             y = 0
             openingBraceAbilityTwo = 0
             closingBraceAbilityTwo = 0
+
             for c in range(len(normalAbilityTwoRaw)):
+
                 if normalAbilityTwoRaw[c] == ">":
                     x += 1
                 if x == 2:
                     openingBraceAbilityTwo = c
                     break
+
             for d in range(len(normalAbilityTwoRaw)):
+
                 if normalAbilityTwoRaw[d] == "<":
                     y += 1
                 if y == 3:
                     closingBraceAbilityTwo = d
                     break
+
+            #here, we use the values we have gotten above through looping through the string
             normalAbilityOne = normalAbilityOneRaw[openingBraceAbilityOne + 1:closingBraceAbilityOne]
+
             normalAbilityTwo = normalAbilityTwoRaw[openingBraceAbilityTwo + 1:closingBraceAbilityTwo]
+
+        #grabs simple pokemon stats
         pokeHP=tempSoup.find("th",string="HP").next_sibling.next_sibling.string
+
         pokeAtt=tempSoup.find("th",string="Attack").next_sibling.next_sibling.string
+
         pokeDef=tempSoup.find("th",string="Defense").next_sibling.next_sibling.string
+
         pokeSpAtt=tempSoup.find("th",string="Sp. Atk").next_sibling.next_sibling.string
+
         pokeSpDef=tempSoup.find("th",string="Sp. Def").next_sibling.next_sibling.string
+
         pokeSpeed=tempSoup.find("th",string="Speed").next_sibling.next_sibling.string
+
         pokeStats=["HP: "+pokeHP,"Attack "+pokeAtt,"Defense "+pokeDef,"Special Attack "+pokeSpAtt,"Special Defense "+pokeSpDef,"Speed "+pokeSpeed]
+
+        #refines html text grabbed above with wFinder and hFinder
         weight = wFinder.next_sibling.next_sibling.get_text()
+
         height = hFinder.next_sibling.next_sibling.get_text()
         # Appending the pokedex number and the name to the pokemon info list
         possibleAbiltiesRaw = [normalAbilityOne, normalAbilityTwo]
+
+        #Filters out errors in possible abilites
         for h in range(len(possibleAbiltiesRaw)):
+
             if not possibleAbiltiesRaw[h]:
                 possibleAbiltiesRaw[h]=None
                 continue
+
             for v in range(len(possibleAbiltiesRaw[h])):
+
                 if (possibleAbiltiesRaw[h][v].isalpha() or possibleAbiltiesRaw[h][v]==' ')==False:
                     possibleAbiltiesRaw[h]=None
                     break
+
+        #Final refinement of abilities
         possibleAbilites=[s for s in possibleAbiltiesRaw if s is not None]
 
+        #Final list appendment
         pokemonInfo.append([pokedexNumber, name, thisPokemonType, weight, height, evolutionFinal,pokeSpriteIcon,pokemonDescp,baseStats,possibleAbilites,pokeStats,generationIntro])
 
     # Returning the list to the user (IN THE FUTURE, THIS LIST WILL BE WRITTEN TO A FILE, BUT FOR DEBUGGING PURPOSES
@@ -280,6 +340,8 @@ for i in range(len(pokedex)):
 # Calling the printingInfo function to retrieve the pokedex numbers of each entry
 info = printingInfo(pokemon_names)
 
+
+#final writing of the list grabbed through the method to the masterpokedex.txt file, splits each pokemon with omega symbol
 with open("masterpokedex.txt",mode="wt",encoding="utf-8") as pseudoDB:
     for pokemon in info:
         for element in pokemon:
