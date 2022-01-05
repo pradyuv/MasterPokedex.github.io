@@ -29,7 +29,7 @@
             </tr>
             <tr>
                 <td id="footer-nav"><a href="#footer"><img src="Images/Pokeball.png" alt="Footer"></a></td>
-                <td id="footer-navigation-caption">More Info</td>
+                <td id="footer-navigation-caption">Credits</td>
             </tr>
         </table>
         <div class="welcome">
@@ -158,12 +158,36 @@
         <!-- Any future elements will show up beneath the main portion of the website -->
         <div id="introductions">
             <h1>WHO WE ARE</h1>
+            <p>Hello, my name is Meekyle Mondal and I am a software engineering student at the University of Ottawa. I love coding and the world
+                of computing, taking on various projects to better immerse myself with the wonders of technology. I'm currently a really big fan
+                of web development and anything front-end related, but I don't mind working on the backend either.
+                <a href="https://www.linkedin.com/in/meekyle-mondal/" target="_blank">This</a> is my LinkedIn,
+                and you can find some more projects that I've worked on <a href="https://github.com/amond049" target="_blank">here</a>.
+            </p>
+            <!-- YOU CAN PUT YOUR INTRODUCTION HERE, PRADYU -->
         </div>
         <div id="bts">
             <h1>HOW IT WORKS</h1>
+            <p>Before we discuss how it was all possible, we would first like to distinguish that Pradyu took on all the backend
+                functionalities, and Meekyle focused on the front-end application.
+            </p>
+            <!-- YOU CAN PUT YOUR INFO IN HERE PRADYU -->
+            <p>After having gotten the information from the web scraper and writing it all to a txt file (which we considered a
+                pseudo-database for the website), it was a matter of writing JS code to get the text from the file. This is where the XMLHTTP
+                Request came into play, but by no means was it trivial to implement. XMLHTTP Requests only work for valid web servers, and
+                localhost is not one of these valid web servers. The only way to test and see if the code was working was to push it to the 
+                Github repository and wait for the Github Pages to update. It took a bit of time to adjust to, but we got used to it. After
+                successfully retrieving the file's contents, it was a matter of formatting it into data that actually had some meaning (as it 
+                was just raw text before that point). With the help of the .split() method and A LOT of string indexing, the data in the txt file 
+                was finally in a format that was usable by Javascript. Then it was just a matter of populating a dictionary, with the key being the 
+                pokemon's name and the values being the data retrieved for each pokemon. Then all that needed to be done was to display the data 
+                in a visually appealing way, and that's that.
+            </p>
         </div>
         <div id="footer">
-            <p>You can contact us at</p>
+            <p>All credit to PokemonDB, Bulbapedia and <a href="https://msikma.github.io/pokesprite/overview/dex-gen8-new.html">msikma</a>
+            on Github for using their images on this website. Credit again to PokemonDB and Bulbapedia as that is where all of the information
+            that was scraped came from. </p>
         </div>
     </body>
     <script src="index.js"></script>

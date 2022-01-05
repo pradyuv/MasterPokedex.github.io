@@ -13,6 +13,15 @@
    */
 
 /* Styling the general body elements */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: "Fira Sans";
     background-image: url("Images/Website\ Background.png");
@@ -32,7 +41,7 @@ body{
     text-align: center;
     width: 40px;
     text-align: center;
-
+    color: red;
 }
 
 /* Setting the captions to hidden initially */
@@ -40,6 +49,7 @@ body{
     display: none;
     padding-left: 10px;
     padding-right: 10px;
+    font-weight: bold;
 
 }
 
@@ -49,7 +59,7 @@ body{
 }
 
 #welcome-navigation img:hover, #intro-nav img:hover, #how-it-works-nav img:hover, #footer-nav img:hover{
-    transform: rotate(360deg);
+    transform: rotate(180deg);
 }
 
 /* ================================================ GENERAL MENU ===================================== */
@@ -77,6 +87,7 @@ body{
 }
 
 .welcome h3{
+    padding-top: 36px;
     font-size: 36px;
 }
 
@@ -85,6 +96,7 @@ body{
     margin-left: 2%;
     width: 38%;
     display: inline-block;
+    padding-top: 5px;
 
 }
 
@@ -174,18 +186,16 @@ td button:hover{
     background-color: rgba(211, 211, 211, 0.5);
 }
 
-
-/* WILL HAVE TO FIX THIS SO IT IS ONLY APPLIED TO THE POKEDEX, NOT THE WHOLE PAGE*/
 /* Editing the scrollbar of the pokedex to make it look a little bit more techy */
-::-webkit-scrollbar{
+.main ::-webkit-scrollbar{
     width: 10px;
 }
 
-::-webkit-scrollbar-track{
+.main ::-webkit-scrollbar-track{
     background: lightblue;
 }
 
-::-webkit-scrollbar-thumb{
+.main ::-webkit-scrollbar-thumb{
     background: lightgray;
 }
 
@@ -217,16 +227,66 @@ input{
     font-weight: bold;
 }
 
-/* ============================================= WHO WE ARE SECTION ============================================================*/
-#introductions, #bts, #footer {
+/* ============================================= WHO WE ARE, BTS, FOOTER SECTION ============================================================*/
+#introductions, #bts, #footer{
     width: 100%;
-    background-color: red;
     text-align: center;
     margin: 100px 0;
-    height: 450px;
+    background-image: url("Images/Pokeball\ Background.png");
+    color: white;
+    overflow-y: auto;
+}
+
+#introductions{
+    height: 600px;
 }
 
 
+#introductions h1, #bts h1{
+    font-size: 64px;
+    padding: 15px;
+    color: yellow;
+}
+
+#introductions p{
+    text-align: left;
+    padding-top: 45px;
+    width: 50%;
+    padding-left: 15%;
+    font-size: 20px;
+}
+
+
+#introductions a{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+#introductions a:hover{
+    text-decoration: underline;
+}
+
+#bts p{
+    padding-top: 45px;
+    padding-left: 70px;
+    padding-right: 70px;
+    font-size: 20px;
+    padding-bottom: 100px;
+}
+
+
+#footer{
+    margin-bottom: 0px;
+    background-image: none;
+    color: black;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+#footer a{
+    color: black;
+}
 /* ============================================= MENU SPECIFIC TO EACH POKEMON ================================================ */
 #back{
     border: 4px solid white;
