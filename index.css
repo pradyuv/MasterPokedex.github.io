@@ -12,31 +12,37 @@
    - Add a darker, different background for the welcome and who we are sections mayhaps?
    */
 
-/* Styling the general body elements */
+/* Setting the padding and margins to 0 so that elements that should cover the whole screen are not interrupted by whitespace 
+on the edges of the screen */
 * {
     margin: 0;
     padding: 0;
 }
 
+/* Setting the scroll behaviour for the webpage (page will scroll smoothly to the div when the appropriate nav link is clicked) rather
+than just blinking to it */
 html{
     scroll-behavior: smooth;
 }
 
+/* Setting the font that will be used in the website along with the background image */
 body{
     font-family: "Fira Sans";
     background-image: url("Images/Website\ Background.png");
 }
 
+/* Setting the scroll bar elements for the website */
 ::-webkit-scrollbar{
-    width: 10px;
+    width: 5px;
 }
 ::-webkit-scrollbar-track{
     background: lightblue;
 }
 
 ::-webkit-scrollbar-thumb{
-    background: lightgray;
+    background: black;
 }
+
 /* Working on the navigation elements */
 #navigation{
     position: fixed;
@@ -62,7 +68,7 @@ body{
 
 }
 
-/* Adding an animation here, when the pokeball is hovered, it does a 360 degree spin, might change it to 180 depending on what looks better */
+/* Adding an animation here, when the pokeball is hovered, it does a 180 degree spin */
 #welcome-navigation img, #intro-nav img, #how-it-works-nav img, #footer-nav img{
     transition: transform .2s ease-in-out;
 }
@@ -85,12 +91,13 @@ body{
     display: block;
 }
 
-.welcome h1, .welcome h3, .welcome h5{
+/* Styling all the text element in the welcome section of the website */
+.welcome h1, .welcome h3{
     color: white;
 }
 
 .welcome h1{
-    padding-top: 50px;
+    padding-top: 100px;
     font-size: 96px;
     color :yellow;
 }
@@ -291,6 +298,11 @@ input{
     color: black;
     font-weight: bold;
     padding-bottom: 15px;
+}
+
+#footer p{
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 #footer a{
